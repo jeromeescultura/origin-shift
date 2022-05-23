@@ -7,8 +7,8 @@ import plant3 from "../assets/Plants2.svg";
 
 const Assessment = () => {
   const [step, setStep] = useState({
-    secondStep: "bg-[#F1F1F1]",
-    thirdStep: "bg-[#F1F1F1]",
+    secondStep: "w-0 opacity-0",
+    thirdStep: "w-0 opacity-0",
   });
 
   const [stepNo, setStepNo] = useState(1);
@@ -34,10 +34,10 @@ const Assessment = () => {
   const [activeState, changeState] = useState(0);
 
   const stepForwardHandler = () => {
-    if (step.secondStep === "bg-[#F1F1F1]") {
-      setStep({ ...step, secondStep: "bg-[#FFB432]" });
-    } else if (step.thirdStep === "bg-[#F1F1F1]") {
-      setStep({ ...step, thirdStep: "bg-[#FFB432]" });
+    if (step.secondStep === "w-0 opacity-0") {
+      setStep({ ...step, secondStep: "w-full opacity-100" });
+    } else if (step.thirdStep === "w-0 opacity-0") {
+      setStep({ ...step, thirdStep: "w-full opacity-100" });
     }
     setStepNo((prevState) => prevState + 1);
     changeState((prevState) => {
@@ -53,10 +53,10 @@ const Assessment = () => {
   };
 
   const stepBackwardHandler = () => {
-    if (step.thirdStep === "bg-[#FFB432]") {
-      setStep({ ...step, thirdStep: "bg-[#F1F1F1]" });
-    } else if (step.secondStep === "bg-[#FFB432]") {
-      setStep({ ...step, secondStep: "bg-[#F1F1F1]" });
+    if (step.thirdStep === "w-full opacity-100") {
+      setStep({ ...step, thirdStep: "w-0 opacity-0" });
+    } else if (step.secondStep === "w-full opacity-100") {
+      setStep({ ...step, secondStep: "w-0 opacity-0" });
     }
     setStepNo((prevState) => prevState - 1);
     changeState((prevState) => {
