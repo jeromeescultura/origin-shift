@@ -4,6 +4,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+
+    backgroundImage: {
+      "assessment-bg": "url('../assets/assessment-background.png')",
+    },
+
     extend: {
       colors: {
         primaryText: "#FA4616",
@@ -14,6 +19,7 @@ module.exports = {
         darkHighlight: "#FFB432",
       },
     },
+
   },
   plugins: [],
 };
