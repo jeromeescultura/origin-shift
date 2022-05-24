@@ -4,11 +4,12 @@ import Question2 from "./Question2";
 import SliderQuestion from "./sliderQuestion";
 
 const Questions = ({ questions }) => {
+  console.log("Questions", questions);
   return (
     <div className="space-y-12">
       <Question1 />
       <Question2 />
-      <SliderQuestion question={questions[2]} />
+      <SliderQuestion question={questions.firstStep[2]} />
     </div>
   );
 };
