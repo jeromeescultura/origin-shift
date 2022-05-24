@@ -15,7 +15,7 @@ const DropdownQuestion = ({ question }) => {
             id="industry"
             className="text-[16px] border border-gray-400 rounded-md p-5 w-80 mt-12"
           >
-            <option selected>Please select</option>
+            <option defaultValue>Please select</option>
             {choices.industry.map((val, index) => (
               <option value={val} key={index} className="capitalize">
                 {val}
