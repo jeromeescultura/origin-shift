@@ -174,7 +174,7 @@ function sample() {
                   <p className="text-[20px] text-secondaryText font-light">
                     {buttonQuestions.text}
                   </p>
-                  <div className="space-y-8 mt-12 -space-x-1">
+                  <div className="space-y-8 mt-12 -space-x-8">
                     {buttonQuestions.options.map(({ id, text }) => (
                       <ButtonQuestion text={text} key={id} />
                     ))}

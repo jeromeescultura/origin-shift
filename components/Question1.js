@@ -12,7 +12,7 @@ function Question1() {
             Are you currently looking to implement any specifiy sustainability
             or energy efficiency goals at your business for the future?
           </p>
-          <div className="flex mt-12 -space-x-1">
+          <div className="flex mt-12 -space-x-2">
             <ButtonQuestion text="Not really" />
             <ButtonQuestion text="Yes, I'm considering it" />
             {/* <button className="w-[203px] h-[48px] bg-white  text-[#505050 font-light text-center border rounded-r-md focus:z-10 focus:bg-highlight focus:border-darkHighlight">
