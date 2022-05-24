@@ -10,7 +10,7 @@ function CheckboxQuestion({ id, text, action }) {
   return (
     <div className="form-check flex items-center gap-4 ">
       <input
-        className="form-check-input appearance-none min-h-[24px] min-w-[24px] w-6 h-6 border-2 border-[#737373] rounded-sm bg-white checked:bg-darkHighlight checked:border-darkHighlight focus:outline-none transition duration-200 cursor-pointer"
+        className="form-check-input appearance-none min-h-g[24px] min-w-[24px] w-6 h-6 border-2 border-[#737373] rounded-sm bg-white checked:bg-darkHighlight checked:border-darkHighlight focus:outline-none transition duration-200 cursor-pointer"
         type="checkbox"
         value=""
         id={id}
@@ -31,7 +31,7 @@ function CheckboxQuestion({ id, text, action }) {
         />
       </div>
       <label
-        className="form-check-label inline-block text-secondaryText font-light"
+        className="form-check-label inline-block text-secondaryText font-light text-sm md:text-base"
         htmlFor={id}
       >
         {text}

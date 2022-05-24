@@ -10,13 +10,13 @@ function IconsQuestion({ id, text, icon }) {
     <div
       className={`${
         selected && "bg-highlight"
-      } form-check flex flex-col items-center gap-4 border rounded-xl min-w-[200px] max-w-[220px] py-6 bg-white focus-within:bg-highlight cursor-pointer`}
+      } form-check flex flex-col items-center gap-10 border rounded-xl min-w-[180px] max-w-[220px] py-6 bg-white focus-within:bg-highlight cursor-pointer`}
       onClick={handleSelected}
     >
-      <div className="w-14 h-18">
+      <div className="md:w-14 md:h-18 w-8 h-8">
         <Image src={icon} width={100} height={100} objectFit="contain" />
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-1 md:gap-4 items-center">
         <input
           className="relative form-check-input appearance-none h-6 w-6 border-2 border-[#737373] rounded-sm bg-white checked:bg-darkHighlight checked:border-darkHighlight focus:outline-none transition duration-200"
           type="checkbox"
@@ -35,7 +35,7 @@ function IconsQuestion({ id, text, icon }) {
           />
         </div>
         <label
-          className="form-check-label inline-block text-secondaryText font-light"
+          className="form-check-label inline-block text-secondaryText font-light text-xs md:text-base"
           htmlFor={id}
         >
           {text}

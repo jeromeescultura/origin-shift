@@ -9,6 +9,7 @@ import ProgressBar from "../components/ProgressBar";
 import Question1 from "../components/Question1";
 import Question2 from "../components/Question2";
 import Question3 from "../components/Question3";
+import QuestionContainer from "../components/QuestionContainer";
 import RadioQuestion from "../components/RadioQuestion";
 
 function sample() {
@@ -102,6 +103,8 @@ function sample() {
     id: "02",
     icon: "/icons/flame.svg",
     title: "General operations changes",
+    text: "What sort of changes have been implemented (if any) to help reduce the impact your business has on the environment?",
+    subText: "Select none or as many that apply.",
     questions: [
       {
         id: 1,
@@ -157,135 +160,94 @@ function sample() {
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
-          <div className="space-y-12">
+          <div className="md:space-y-12">
             {/* Button Questions */}
-            <div
-              className={`${
-                activeState === 0 ? "block" : "hidden "
-              } bg-white rounded-3xl py-24 pl-16 pr-24`}
+            <QuestionContainer
+              id={buttonQuestions.id}
+              text={buttonQuestions.text}
+              style={activeState !== 0 && "hidden"}
             >
-              <div className="flex gap-12">
-                <div>
-                  <p className="text-[64px] text-primaryText">
-                    {buttonQuestions.id}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[20px] text-secondaryText font-light">
-                    {buttonQuestions.text}
-                  </p>
-                  <div className="space-y-8 mt-12 -space-x-8">
-                    {buttonQuestions.options.map(({ id, text }) => (
-                      <ButtonQuestion text={text} key={id} />
-                    ))}
-                  </div>
-                </div>
+              <div className="gap-2 mt-4 md:mt-12 md:-space-x-8 flex flex-col md:flex-row">
+                {buttonQuestions.options.map(({ id, text }) => (
+                  <ButtonQuestion text={text} key={id} />
+                ))}
               </div>
-            </div>
+            </QuestionContainer>
 
             {/* Checkbox Form SAMPLE */}
-            <div
-              className={`${
-                activeState === 1 ? "block" : "hidden"
-              } bg-white rounded-3xl py-24 pl-16 pr-24`}
+            <QuestionContainer
+              id={checkboxQuestions.id}
+              text={checkboxQuestions.text}
+              subText={checkboxQuestions.subText}
+              style={activeState !== 1 && "hidden"}
             >
               <div className="flex gap-12">
-                <div>
-                  <p className="text-[64px] text-primaryText">
-                    {checkboxQuestions.id}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[20px] text-secondaryText font-light">
-                    What sort of changes have been implemented (if any) to help
-                    reduce the impact your business has on the environment?
-                  </p>
-                  <p className="mt-8 font-light">
-                    Select none or as many that apply.
-                  </p>
-                  <div className="flex mt-12">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 p-2">
-                        <Image
-                          src={checkboxQuestions.icon}
-                          width={50}
-                          height={50}
-                          objectFit="contain"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-8 mt-2">
+                <div className="flex mt-12">
+                  <div className="flex flex-col md:flex-row items-start gap-3">
+                    <div className="min-w-[40px] min-h-[40px] w-12 h-12 p-2 hidden md:inline">
+                      <Image
+                        src={checkboxQuestions.icon}
+                        width={50}
+                        height={50}
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-8 mt-2">
+                      <div className="flex">
+                        <div className="min-w-[30px] min-h-[30px] w-10 h-10 p-2 md:hidden">
+                          <Image
+                            src={checkboxQuestions.icon}
+                            width={50}
+                            height={50}
+                            objectFit="contain"
+                          />
+                        </div>
                         <p className="text-[20px] font-bold text-secondaryText">
                           {checkboxQuestions.title}
                         </p>
-                        {checkboxQuestions.questions.map(({ text, id }) => (
-                          <CheckboxQuestion text={text} id={id} key={id} />
-                        ))}
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Radio Buttons */}
-            <div
-              className={`${
-                activeState === 2 ? "block" : "hidden "
-              } bg-white rounded-3xl py-24 pl-16 pr-24`}
-            >
-              <div className="flex gap-12">
-                <div>
-                  <p className="text-[64px] text-primaryText">
-                    {radioQuestions.id}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[20px] text-secondaryText font-light">
-                    {radioQuestions.text}
-                  </p>
-                  <div className="space-y-8 mt-12">
-                    {radioQuestions.options.map(({ id, text }) => (
-                      <div className="form-check flex items-center" key={id}>
-                        <RadioQuestion id={id} text={text} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className={`${
-                activeState === 2 ? "block" : "hidden "
-              } bg-white rounded-3xl py-24 pl-16 pr-24`}
-            >
-              <div className="flex gap-12">
-                <div>
-                  <p className="text-[64px] text-primaryText">
-                    {iconsQuestions.id}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[20px] text-secondaryText font-light">
-                    {iconsQuestions.text}
-                  </p>
-                  <p className="mt-8 font-light">{iconsQuestions.subText}</p>
-                  <div className="space-y-8 mt-12">
-                    <div className="flex space-x-4">
-                      {iconsQuestions.options.map(({ id, text, icon }) => (
-                        <IconsQuestion
-                          key={id}
-                          id={id}
-                          text={text}
-                          icon={icon}
-                        />
+                      {checkboxQuestions.questions.map(({ text, id }) => (
+                        <CheckboxQuestion text={text} id={id} key={id} />
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="flex gap-16 py-16">
+            </QuestionContainer>
+
+            {/* Radio Buttons */}
+
+            <QuestionContainer
+              id={radioQuestions.id}
+              text={radioQuestions.text}
+              style={activeState !== 2 && "hidden"}
+            >
+              <div className="space-y-8 mt-12">
+                {radioQuestions.options.map(({ id, text }) => (
+                  <div className="form-check flex items-center" key={id}>
+                    <RadioQuestion id={id} text={text} />
+                  </div>
+                ))}
+              </div>
+            </QuestionContainer>
+
+            <QuestionContainer
+              id={iconsQuestions.id}
+              text={iconsQuestions.text}
+              subText={iconsQuestions.subText}
+              style={activeState !== 2 && "hidden"}
+            >
+              <div className="space-y-8 mt-12">
+                <div className="flex flex-col lg:flex-row gap-2 md:gap-4">
+                  {iconsQuestions.options.map(({ id, text, icon }) => (
+                    <IconsQuestion key={id} id={id} text={text} icon={icon} />
+                  ))}
+                </div>
+              </div>
+            </QuestionContainer>
+
+            <div className="flex gap-8 pb-8 md:gap-16 md:py-16">
               {activeState !== 0 && (
                 <button
                   className="text-primaryText"

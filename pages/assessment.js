@@ -5,9 +5,9 @@ import Question1 from "../components/Question1";
 import Question2 from "../components/Question2";
 import CheckboxQuestion from "../components/CheckboxQuestion";
 import Button from "../components/Button";
-import plant from "../assets/Plant.svg";
-import plant2 from "../assets/Plants.svg";
-import plant3 from "../assets/Plants2.svg";
+import plant from "/icons/plant.svg";
+import plant2 from "/icons/plant2.svg";
+import plant3 from "/icons/plant3.svg";
 import Image from "next/image";
 import RadioQuestion from "../components/RadioQuestion";
 import ButtonQuestion from "../components/ButtonQuestion";
@@ -37,60 +37,6 @@ const Assessment = () => {
       plant: plant3,
     },
   ];
-
-  const checkboxQuestions = {
-    id: "02",
-    icon: "/icons/flame.svg",
-    title: "General operations changes",
-    questions: [
-      {
-        id: 1,
-        text: "Replaced some or all energy inneficient equipment at your site(s) with more efficient ones",
-      },
-      {
-        id: 2,
-        text: "Switch to an energy plan that carbon offsets your energy use",
-      },
-      {
-        id: 3,
-        text: "Invested in renewable generators through programs like GreenPower, to feed renewables into the grid",
-      },
-    ],
-  };
-
-  const radioQuestions = {
-    id: "03",
-    text: "How many business sites are you responsible for the energy management of?",
-    options: [
-      {
-        id: 1,
-        text: "1-2 sites",
-      },
-      {
-        id: 2,
-        text: "2-5 sites",
-      },
-      {
-        id: 3,
-        text: "No business sites - I operate out of my home",
-      },
-    ],
-  };
-
-  const buttonQuestions = {
-    id: "01",
-    text: "Are you currently looking to implement any specifiy sustainability or energy efficiency goals at your business for the future?",
-    options: [
-      {
-        id: 1,
-        text: "Not really",
-      },
-      {
-        id: 2,
-        text: "Yes, I'm considering it",
-      },
-    ],
-  };
 
   const [activeState, changeState] = useState(0);
 
