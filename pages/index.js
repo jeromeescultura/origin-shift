@@ -37,7 +37,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 mt-16">
             <Button text="Start assessment" />
-            <button className="text-primaryText border-primaryText border rounded-full py-2 px-8">
+            <button className="text-secondaryBG border-secondaryBG border rounded-full py-2 px-8">
               Let's have a chat
             </button>
           </div>
