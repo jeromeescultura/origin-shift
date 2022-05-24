@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import ProgressBar from "../components/ProgressBar";
 import PageIntro from "../components/PageIntro";
+import Question1 from "../components/Question1";
+import Question2 from "../components/Question2";
+import Question3 from "../components/Question3";
+import Button from "../components/Button";
 import plant from "../assets/Plant.svg";
 import plant2 from "../assets/Plants.svg";
 import plant3 from "../assets/Plants2.svg";
@@ -71,11 +75,23 @@ const Assessment = () => {
     }
   };
   return (
-    <div className="bg-assessment-bg w-full h-full">
-      <ProgressBar step={step} stepNo={stepNo} />
-      <PageIntro assessIntro={assessIntro} activeState={activeState} />
-      <button onClick={stepBackwardHandler}>BACK</button>
-      <button onClick={stepForwardHandler}>NEXT</button>
+    <div className="bg-primaryBG">
+      <div className=" bg-assessment-bg bg-no-repeat h-full">
+        <div className="w-[90%] md:w-[80%] mx-auto h-full">
+          <ProgressBar step={step} stepNo={stepNo} />
+          <PageIntro assessIntro={assessIntro} activeState={activeState} />
+          <div className="space-y-12">
+            <Question1 />
+            <Question2 />
+            <Question3 />
+          </div>
+
+          <div className="flex gap-8">
+            <button onClick={stepBackwardHandler}>Back</button>
+            <Button text="Next" action={stepForwardHandler} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

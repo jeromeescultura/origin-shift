@@ -4,22 +4,20 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-
     backgroundImage: {
-      "assessment-bg": "url('../assets/assessment-background.png')",
+      "assessment-bg": "url('../public/images/assessment-bg.png')",
     },
 
     extend: {
       colors: {
         primaryText: "#FA4616",
         secondaryText: "#232323",
-        primaryBG: "#00B9D70A",
+        primaryBG: "#EBF9FD",
         secondaryBG: "#EC0000",
         highlight: "#FFF9EF",
         darkHighlight: "#FFB432",
       },
     },
-
   },
   plugins: [],
 };
