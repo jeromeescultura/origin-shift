@@ -71,7 +71,7 @@ const Assessment = () => {
     }
   };
   return (
-    <div className="container mx-auto mt-10">
+    <div className="bg-assessment-bg w-full h-full">
       <ProgressBar step={step} stepNo={stepNo} />
       <PageIntro assessIntro={assessIntro} activeState={activeState} />
       <button onClick={stepBackwardHandler}>BACK</button>
