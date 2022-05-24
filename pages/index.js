@@ -30,7 +30,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-[56px] md:leading-[64px] text-primaryText md:max-w-[450px] font-bold ">
             Business energy that's affordable &amp; future proof
           </h2>
-          <p className="text-secondaryText max-w-[530px] text-[20px] mt-8">
+          <p className="text-secondaryText max-w-[520px] text-[20px] mt-8 font-light">
             By taking our sustainability assessment, we will connect your
             business to the right products and services that drive value for you
             and the environment.
