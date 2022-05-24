@@ -1,3 +1,5 @@
+import ButtonQuestion from "./ButtonQuestion";
+
 function Question1() {
   return (
     <div className="bg-white rounded-3xl py-24 pl-16 pr-24">
@@ -10,13 +12,15 @@ function Question1() {
             Are you currently looking to implement any specifiy sustainability
             or energy efficiency goals at your business for the future?
           </p>
-          <div className="flex mt-12">
-            <button className="w-[203px] h-[48px] bg-white  text-[#505050 font-light text-center border rounded-r-md focus:z-10 focus:bg-highlight focus:border-darkHighlight">
+          <div className="flex mt-12 -space-x-1">
+            <ButtonQuestion text="Not really" />
+            <ButtonQuestion text="Yes, I'm considering it" />
+            {/* <button className="w-[203px] h-[48px] bg-white  text-[#505050 font-light text-center border rounded-r-md focus:z-10 focus:bg-highlight focus:border-darkHighlight">
               Not really
             </button>
             <button className="w-[203px] h-[48px] bg-white text-[#505050] font-light text-center border rounded-l-md -ml-2 focus:z-10 focus:bg-highlight focus:border-darkHighlight">
               Yes, I'm considering it
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
