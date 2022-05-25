@@ -167,7 +167,7 @@ function sample() {
               text={buttonQuestions.text}
               style={activeState !== 0 && "hidden"}
             >
-              <div className="gap-2 mt-4 md:mt-12 md:-space-x-8 flex flex-col md:flex-row">
+              <div className="gap-2 mt-4 md:mt-12 md:-space-x-4 flex flex-col md:flex-row">
                 {buttonQuestions.options.map(({ id, text }) => (
                   <ButtonQuestion text={text} key={id} />
                 ))}
