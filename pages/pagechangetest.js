@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ProgressBar from "../components/ProgressBar";
 import PageIntro from "../components/PageIntro";
-import Question1 from "../components/Question1";
-import Question2 from "../components/Question2";
-import Question3 from "../components/Question3";
 import Button from "../components/Button";
-import Questions from "../components/Questions";
 import SliderQuestion from "../components/SliderQuestion";
 import DropdownQuestion from "../components/DropdownQuestion";
-
+import Image from "next/image";
 import { server } from "../config";
 import QuestionContainer from "../components/QuestionContainer";
 import IconsRadioQuestion from "../components/IconsRadioQuestion";
+import ButtonQuestion from "../components/ButtonQuestion";
+import CheckboxQuestion from "../components/CheckboxQuestion";
+import RadioQuestion from "../components/RadioQuestion";
+import IconsQuestion from "../components/IconsQuestion";
 
 const PageChangeTest = ({ questions }) => {
   const [step, setStep] = useState({
@@ -20,8 +20,6 @@ const PageChangeTest = ({ questions }) => {
   });
 
   const [stepNo, setStepNo] = useState(1);
-
-  const [stepPage, setPage] = useState(questions.firstStep);
 
   const assessIntro = [
     {
@@ -32,12 +30,12 @@ const PageChangeTest = ({ questions }) => {
     {
       header: "Your site & energy needs",
       desc: "To understand what options may be applicable to reduce your business impact from an energy perspective, tell us a little bit about what happens on-site to keep your business running.",
-      plant: "/icons/plant2.svg",
+      plant: "/icons/plant3.svg",
     },
     {
       header: "Your program preferences",
       desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let’s understand these further.",
-      plant: "/icons/plant3.svg",
+      plant: "/icons/plant2.svg",
     },
   ];
 
@@ -83,19 +81,7 @@ const PageChangeTest = ({ questions }) => {
     }
   };
 
-  const questionsCycler = () => {
-    if (stepNo === 1) {
-      setPage(questions.firstStep);
-    } else if (stepNo === 2) {
-      setPage(questions.secondStep);
-    } else {
-      setPage(questions.thirdStep);
-    }
-  };
-
-  useEffect(() => {
-    questionsCycler();
-  }, [stepNo]);
+  console.log(questions[3].buttonQuestion);
 
   return (
     <div className="bg-primaryBG">
@@ -103,11 +89,200 @@ const PageChangeTest = ({ questions }) => {
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
-          <div className="space-y-12">
-            {/* <Questions questions={stepPage} /> */}
-          </div>
-          <div className="flex gap-8">
-            <button onClick={stepBackwardHandler}>Back</button>
+          {/* STEP ONE */}
+          {stepNo === 1 && (
+            <div className="space-y-12">
+              {/* BUTTON QUESTION */}
+              <QuestionContainer
+                id={questions[3].buttonQuestion.id}
+                text={questions[3].buttonQuestion.text}
+              >
+                <div className="gap-2 mt-4 md:mt-12 md:-space-x-4 flex flex-col md:flex-row">
+                  {" "}
+                  <ButtonQuestion
+                    text={questions[3].buttonQuestion.options[0].text}
+                  />
+                  <ButtonQuestion
+                    text={questions[3].buttonQuestion.options[1].text}
+                  />
+                </div>
+              </QuestionContainer>
+              {/* CHECKBOX QUESTION */}
+              <QuestionContainer
+                id={questions[1].checkboxQuestion.id}
+                text={questions[1].checkboxQuestion.text}
+                subText={questions[1].checkboxQuestion.subText}
+              >
+                <div className="flex gap-12">
+                  <div className="flex mt-12">
+                    <div className="flex flex-col md:flex-row items-start gap-3">
+                      <div className="min-w-[40px] min-h-[40px] w-12 h-12 p-2 hidden md:inline">
+                        <Image
+                          src={questions[1].checkboxQuestion.icon}
+                          width={50}
+                          height={50}
+                          objectFit="contain"
+                          alt="leaf"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-8 mt-2">
+                        <div className="flex">
+                          <div className="min-w-[30px] min-h-[30px] w-10 h-10 p-2 md:hidden">
+                            <Image
+                              src={questions[1].checkboxQuestion.icon}
+                              width={50}
+                              height={50}
+                              objectFit="contain"
+                              alt="leaf"
+                            />
+                          </div>
+                          <p className="text-[20px] font-bold text-secondaryText">
+                            {questions[1].checkboxQuestion.title}
+                          </p>
+                        </div>
+                        {questions[1].checkboxQuestion.questions.map((val) => (
+                          <CheckboxQuestion
+                            key={val.id}
+                            id={val.id}
+                            text={val.text}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </QuestionContainer>
+              {/* SLIDER QUESTION */}
+              <QuestionContainer
+                id={questions[6].sliderQuestion.id}
+                text={questions[6].sliderQuestion.text}
+              >
+                <SliderQuestion qst={questions[6].sliderQuestion.options} />
+              </QuestionContainer>
+            </div>
+          )}
+          {/* STEP TWO */}
+          {stepNo === 2 && (
+            <div className="space-y-12">
+              {/* DROPDOWN QUESTION / RADIO QUESTION */}
+              <QuestionContainer
+                id={questions[4].dropdownQuestion.id}
+                text={questions[4].dropdownQuestion.text}
+              >
+                <DropdownQuestion qst={questions[4].dropdownQuestion.options} />
+                <div className="space-y-12">
+                  <p className="text-base md:text-[20px] text-secondaryText font-light mt-12">
+                    {questions[2].radioQuestion.text}
+                  </p>
+                  <div className="flex flex-col gap-8">
+                    {questions[2].radioQuestion.options.map((val) => (
+                      <RadioQuestion key={val.id} id={val.id} text={val.text} />
+                    ))}
+                  </div>
+                </div>
+              </QuestionContainer>
+              {/* ICONS QUESTION */}
+              <QuestionContainer
+                id={questions[0].iconsQuestion.id}
+                text={questions[0].iconsQuestion.text}
+                subText={questions[0].iconsQuestion.subText}
+              >
+                <div className="flex flex-col -ml-10 md:ml-0 items-center md:flex-row mt-12 space-y-5 md:space-y-0 md:space-x-5 ">
+                  {questions[0].iconsQuestion.options.map((val) => (
+                    <IconsQuestion
+                      key={val.id}
+                      id={val.id}
+                      text={val.text}
+                      icon={val.icon}
+                    />
+                  ))}
+                </div>
+              </QuestionContainer>
+              {/* RADIO QUESTION */}
+              <QuestionContainer
+                id={"03"}
+                text={"Roughly when does your business use the most energy?"}
+              >
+                <div className="flex flex-col space-y-12 mt-12">
+                  <RadioQuestion id={1} text={"Constant"} />
+                  <RadioQuestion id={2} text={"Mornings"} />
+                  <RadioQuestion id={3} text={"Evenings"} />
+                  <RadioQuestion id={4} text={"Standard times"} />
+                  <RadioQuestion
+                    id={5}
+                    text={"Unconstrained by specific operating hours"}
+                  />
+                </div>
+              </QuestionContainer>
+              {/* BUTTON QUESTION */}
+              <QuestionContainer
+                id={"04"}
+                text={
+                  "Do you have land or roof space where you are allowed to renovate, upgrade or install equipment?"
+                }
+              >
+                <div className="gap-2 mt-4 md:mt-12 md:-space-x-4 flex flex-col md:flex-row">
+                  {" "}
+                  <ButtonQuestion text={"Yes"} />
+                  <ButtonQuestion text={"No"} />
+                  <ButtonQuestion text={"Maybe"} />
+                </div>
+              </QuestionContainer>
+            </div>
+          )}
+          {/* STEP THREE */}
+          {stepNo === 3 && (
+            <div className="space-y-12">
+              {/* ICONS RADIO QUESTION */}
+              <QuestionContainer
+                id={questions[5].iconsRadioQuestion.id}
+                text={questions[5].iconsRadioQuestion.text}
+              >
+                <IconsRadioQuestion
+                  qst={questions[5].iconsRadioQuestion.options}
+                />
+              </QuestionContainer>
+              {/* RADIO QUESTION */}
+              <QuestionContainer
+                id={"02"}
+                text={
+                  "How much of an investment are you willing to make towards helping reduce the climate impact of your business practices?"
+                }
+              >
+                <div className="flex flex-col space-y-12 mt-12">
+                  <RadioQuestion id={1} text={"Little to none"} />
+                  <RadioQuestion
+                    id={2}
+                    text={
+                      "I am open to investing a bit more, if it is within my means"
+                    }
+                  />
+                  <RadioQuestion
+                    id={3}
+                    text={
+                      "I have secured the capital or appetite of stakeholders to invest more"
+                    }
+                  />
+                </div>
+              </QuestionContainer>
+              {/* BUTTON QUESTION */}
+              <QuestionContainer
+                id={"03"}
+                text={
+                  "Would you be open to making a larger investment to explore bigger projects, if you didn’t need to invest too much capital upfront?"
+                }
+              >
+                <div className="gap-2 mt-4 md:mt-12 md:-space-x-4 flex flex-col md:flex-row">
+                  {" "}
+                  <ButtonQuestion text={"Yes"} />
+                  <ButtonQuestion text={"No"} />
+                  <ButtonQuestion text={"I'm not sure"} />
+                </div>
+              </QuestionContainer>
+            </div>
+          )}
+          <div className="flex gap-8 py-12">
+            {stepNo > 1 && <button onClick={stepBackwardHandler}>Back</button>}
             <Button text="Next" action={stepForwardHandler} />
           </div>
         </div>
