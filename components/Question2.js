@@ -37,7 +37,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Replaced some or all energy inneficient equipment at your
                       site(s) with more efficient ones
@@ -52,7 +52,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Switch to an energy plan that carbon offsets your energy
                       use
@@ -67,7 +67,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Invested in renewable generators through programs like
                       GreenPower, to feed renewables into the grid
@@ -82,7 +82,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Installed solar at your site(s)
                     </label>
@@ -96,7 +96,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Added battery storage to your solar system
                     </label>
@@ -110,7 +110,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Replaced some or all of your vehicle fleet with electric
                       vehicles
@@ -143,7 +143,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Replaced some or all packaging used for your business to
                       use more sustainable alternatives
@@ -158,7 +158,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Introduced recycling and waste reduction processes at
                       office sites
@@ -173,7 +173,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Invested in renewable generators through programs like
                       GreenPower, to feed renewables into the grid
@@ -188,7 +188,7 @@ function Question2() {
                     />
                     <label
                       className="form-check-label inline-block text-secondaryText font-light"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                     >
                       Optimised supply chain processes to reduce material
                       wastage

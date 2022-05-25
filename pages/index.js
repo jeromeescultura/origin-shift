@@ -12,6 +12,7 @@ export default function Home() {
             width={90}
             height={90}
             objectFit="contain"
+            alt="origin-logo"
           />
         </div>
       </div>
@@ -23,6 +24,7 @@ export default function Home() {
             height={660}
             objectFit="cover"
             layout="fill"
+            alt="bg-image"
           />
         </div>
 
