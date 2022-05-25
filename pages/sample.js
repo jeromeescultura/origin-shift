@@ -1,14 +1,10 @@
 import Image from "next/image";
 import { useState } from "react";
-import Button from "../components/button";
+import ButtonComponents from "../components/ButtonComponents";
 import ButtonQuestion from "../components/ButtonQuestion";
-import CheckboxQuestion from "../components/CheckboxQuestion";
 import IconsQuestion from "../components/IconsQuestion";
 import PageIntro from "../components/PageIntro";
 import ProgressBar from "../components/ProgressBar";
-import Question1 from "../components/Question1";
-import Question2 from "../components/Question2";
-import Question3 from "../components/Question3";
 import QuestionContainer from "../components/QuestionContainer";
 import RadioQuestion from "../components/RadioQuestion";
 
@@ -174,48 +170,6 @@ function sample() {
               </div>
             </QuestionContainer>
 
-            {/* Checkbox Form SAMPLE */}
-            <QuestionContainer
-              id={checkboxQuestions.id}
-              text={checkboxQuestions.text}
-              subText={checkboxQuestions.subText}
-              style={activeState !== 1 && "hidden"}
-            >
-              <div className="flex gap-12">
-                <div className="flex mt-12">
-                  <div className="flex flex-col md:flex-row items-start gap-3">
-                    <div className="min-w-[40px] min-h-[40px] w-12 h-12 p-2 hidden md:inline">
-                      <Image
-                        src={checkboxQuestions.icon}
-                        width={50}
-                        height={50}
-                        objectFit="contain"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-8 mt-2">
-                      <div className="flex">
-                        <div className="min-w-[30px] min-h-[30px] w-10 h-10 p-2 md:hidden">
-                          <Image
-                            src={checkboxQuestions.icon}
-                            width={50}
-                            height={50}
-                            objectFit="contain"
-                          />
-                        </div>
-                        <p className="text-[20px] font-bold text-secondaryText">
-                          {checkboxQuestions.title}
-                        </p>
-                      </div>
-
-                      {checkboxQuestions.questions.map(({ text, id }) => (
-                        <CheckboxQuestion text={text} id={id} key={id} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </QuestionContainer>
-
             {/* Radio Buttons */}
 
             <QuestionContainer
@@ -256,7 +210,7 @@ function sample() {
                   Back
                 </button>
               )}
-              <Button text="Next" action={stepForwardHandler} />
+              <ButtonComponents text="Next" action={stepForwardHandler} />
             </div>
           </div>
         </div>

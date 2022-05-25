@@ -30,7 +30,7 @@ const questions = [
       title: "General operations changes",
       text: "What sort of changes have been implemented (if any) to help reduce the impact your business has on the environment?",
       subText: "Select none or as many that apply.",
-      questions: [
+      questionsList: [
         {
           id: 1,
           text: "Replaced some or all energy inneficient equipment at your site(s) with more efficient ones",
@@ -42,6 +42,18 @@ const questions = [
         {
           id: 3,
           text: "Invested in renewable generators through programs like GreenPower, to feed renewables into the grid",
+        },
+        {
+          id: 4,
+          text: "Installed solar at your site(s)",
+        },
+        {
+          id: 5,
+          text: "Added battery storage to your solar system",
+        },
+        {
+          id: 6,
+          text: "Replaced some or all of your vehicle fleet with electric vehicles",
         },
       ],
     },
@@ -75,8 +87,9 @@ const questions = [
           id: 1,
           text: "Not really",
         },
+
         {
-          id: 2,
+          id: 3,
           text: "Yes, I'm considering it",
         },
       ],

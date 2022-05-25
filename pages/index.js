@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
-import Button from "../components/button";
+import Link from "next/link";
+import ButtonComponents from "../components/ButtonComponents";
 
 export default function Home() {
   return (
@@ -38,7 +39,9 @@ export default function Home() {
             and the environment.
           </p>
           <div className="flex flex-col md:flex-row gap-4 mt-16">
-            <Button text="Start assessment" />
+            <Link href="/assessment">
+              <ButtonComponents text="Start assessment" />
+            </Link>
             <button className="text-secondaryBG border-secondaryBG border rounded-full py-2 px-8">
               Let's have a chat
             </button>

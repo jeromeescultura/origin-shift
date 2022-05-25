@@ -1,20 +1,35 @@
-import React, { useEffect, useState } from "react";
-import ProgressBar from "../components/ProgressBar";
-import PageIntro from "../components/PageIntro";
-import Question1 from "../components/Question1";
-import Question2 from "../components/Question2";
-import CheckboxQuestion from "../components/CheckboxQuestion";
-import Button from "../components/Button";
-import Image from "next/image";
-import RadioQuestion from "../components/RadioQuestion";
-import ButtonQuestion from "../components/ButtonQuestion";
-import Questions from "../components/Questions";
-import SliderQuestion from "../components/SliderQuestion";
-import DropdownQuestion from "../components/DropdownQuestion";
-
+import { useEffect, useState } from "react";
 import { server } from "../config";
 
+import ProgressBar from "../components/ProgressBar";
+import PageIntro from "../components/PageIntro";
+import ButtonComponents from "../components/ButtonComponents";
+import QuestionContainer from "../components/QuestionContainer";
+import ButtonQuestion from "../components/ButtonQuestion";
+import IconsQuestion from "../components/IconsQuestion";
+import CheckboxContainer from "../components/CheckboxContainer";
+import RadioQuestion from "../components/RadioQuestion";
+
 const Assessment = ({ questions }) => {
+  const [buttonQuestions, setButtonQuestions] = useState({});
+  const [checkboxQuestions, setCheckboxQuestions] = useState({});
+  const [radioQuestions, setRadioQuestions] = useState({});
+  const [iconsQuestions, setIconsQuestions] = useState({});
+
+  useEffect(() => {
+    questions.map((item) => {
+      if (item.buttonQuestion !== undefined) {
+        setButtonQuestions(item.buttonQuestion);
+      } else if (item.checkboxQuestion !== undefined) {
+        setCheckboxQuestions(item.checkboxQuestion);
+      } else if (item.radioQuestion !== undefined) {
+        setRadioQuestions(item.radioQuestion);
+      } else if (item.iconsQuestion !== undefined) {
+        setIconsQuestions(item.iconsQuestion);
+      }
+    });
+  }, [questions]);
+
   const [step, setStep] = useState({
     secondStep: "w-0 opacity-0",
     thirdStep: "w-0 opacity-0",
@@ -51,7 +66,6 @@ const Assessment = ({ questions }) => {
       setStep({ ...step, thirdStep: "w-full opacity-100" });
     }
     setStepNo((prevState) => prevState + 1);
-    console.log(stepNo);
     setPage(questions[stepNo - 1]);
     changeState((prevState) => {
       if (activeState >= 2) {
@@ -73,7 +87,6 @@ const Assessment = ({ questions }) => {
       setStep({ ...step, secondStep: "w-0 opacity-0" });
     }
     setStepNo((prevState) => prevState - 1);
-    console.log(stepNo);
     setPage(questions[stepNo - 1]);
     changeState((prevState) => {
       if (activeState <= 0) {
@@ -87,16 +100,62 @@ const Assessment = ({ questions }) => {
       setPage(questions[stepNo - 1]);
     }
   };
-
   return (
-    <div className="bg-primaryBG">
-      <div className=" bg-assessment-bg bg-no-repeat bg-contain h-full">
+    <div className="bg-primaryBG h-full pb-16">
+      <div className="bg-assessment-bg bg-no-repeat bg-contain h-full">
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
 
-          <div className="flex gap-16 my-16">
-            {activeState !== 0 && (
+          <div className="space-y-8">
+            <QuestionContainer
+              id={buttonQuestions?.id}
+              text={buttonQuestions?.text}
+            >
+              <ButtonQuestion options={buttonQuestions?.options} />
+            </QuestionContainer>
+            <QuestionContainer
+              id={checkboxQuestions?.id}
+              text={checkboxQuestions?.text}
+              subText={checkboxQuestions?.subText}
+            >
+              <CheckboxContainer
+                icon={checkboxQuestions?.icon}
+                title={checkboxQuestions?.title}
+                questionsList={checkboxQuestions?.questionsList}
+              />
+            </QuestionContainer>
+
+            <QuestionContainer
+              id={radioQuestions?.id}
+              text={radioQuestions?.text}
+            >
+              {radioQuestions &&
+                radioQuestions.options?.map((item, index) => (
+                  <RadioQuestion id={index} text={item.text} key={index} />
+                ))}
+            </QuestionContainer>
+            <QuestionContainer
+              id={iconsQuestions.id}
+              text={iconsQuestions.text}
+              subText={iconsQuestions.subText}
+            >
+              <div className="space-y-8 mt-12">
+                <div className="flex flex-col lg:flex-row gap-2 md:gap-4">
+                  {iconsQuestions.options?.map((item, index) => (
+                    <IconsQuestion
+                      key={index}
+                      id={index}
+                      text={item.text}
+                      icon={item.icon}
+                    />
+                  ))}
+                </div>
+              </div>
+            </QuestionContainer>
+          </div>
+          <div className="flex gap-16 mt-16">
+            {stepNo !== 1 && (
               <button
                 className="text-primaryText"
                 onClick={stepBackwardHandler}
@@ -104,8 +163,14 @@ const Assessment = ({ questions }) => {
                 Back
               </button>
             )}
-
-            <Button text="Next" action={stepForwardHandler} />
+            {stepNo !== 3 ? (
+              <ButtonComponents text="Next" action={stepForwardHandler} />
+            ) : (
+              <ButtonComponents
+                text="View recommendations"
+                action={stepForwardHandler}
+              />
+            )}
           </div>
         </div>
       </div>
