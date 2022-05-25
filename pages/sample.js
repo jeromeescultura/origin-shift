@@ -8,7 +8,7 @@ import ProgressBar from "../components/ProgressBar";
 import QuestionContainer from "../components/QuestionContainer";
 import RadioQuestion from "../components/RadioQuestion";
 
-function sample() {
+function Sample() {
   const [step, setStep] = useState({
     secondStep: "w-0 opacity-0",
     thirdStep: "w-0 opacity-0",
@@ -219,4 +219,4 @@ function sample() {
   );
 }
 
-export default sample;
+export default Sample;
