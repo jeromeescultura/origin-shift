@@ -5,9 +5,6 @@ import Question1 from "../components/Question1";
 import Question2 from "../components/Question2";
 import Question3 from "../components/Question3";
 import Button from "../components/Button";
-import plant from "../assets/Plant.svg";
-import plant2 from "../assets/Plants.svg";
-import plant3 from "../assets/Plants2.svg";
 import Questions from "../components/Questions";
 import SliderQuestion from "../components/SliderQuestion";
 import DropdownQuestion from "../components/DropdownQuestion";
@@ -173,17 +170,17 @@ const PageChangeTest = () => {
     {
       header: "Climate action & your business",
       desc: "This initial set of questions are designed to understand what climate action means for you and your business.",
-      plant: plant,
+      plant: "/icons/plant.svg",
     },
     {
       header: "Your site & energy needs",
       desc: "To understand what options may be applicable to reduce your business impact from an energy perspective, tell us a little bit about what happens on-site to keep your business running.",
-      plant: plant2,
+      plant: "/icons/plant2.svg",
     },
     {
       header: "Your program preferences",
       desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let’s understand these further.",
-      plant: plant3,
+      plant: "/icons/plant3.svg",
     },
   ];
 
