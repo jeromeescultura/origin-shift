@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Router from "next/router";
 
-import ButtonComponents from "../components/ButtonComponents";
+import ButtonComponent from "../components/ButtonComponent";
 
 export default function Home() {
   const handleAssessmentBtn = () => {
@@ -44,7 +44,7 @@ export default function Home() {
             and the environment.
           </p>
           <div className="flex flex-col md:flex-row gap-4 mt-16">
-            <ButtonComponents
+            <ButtonComponent
               text="Start assessment"
               action={handleAssessmentBtn}
             />

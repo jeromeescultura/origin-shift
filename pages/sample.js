@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import ButtonComponents from "../components/ButtonComponents";
+import ButtonComponent from "../components/ButtonComponent";
 import ButtonQuestion from "../components/ButtonQuestion";
 import IconsQuestion from "../components/IconsQuestion";
 import PageIntro from "../components/PageIntro";
@@ -210,7 +210,7 @@ function sample() {
                   Back
                 </button>
               )}
-              <ButtonComponents text="Next" action={stepForwardHandler} />
+              <ButtonComponent text="Next" action={stepForwardHandler} />
             </div>
           </div>
         </div>

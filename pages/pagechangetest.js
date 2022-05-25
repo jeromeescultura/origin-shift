@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProgressBar from "../components/ProgressBar";
 import PageIntro from "../components/PageIntro";
-import Button from "../components/Button";
+import ButtonComponent from "../components/ButtonComponent";
 import SliderQuestion from "../components/SliderQuestion";
 import DropdownQuestion from "../components/DropdownQuestion";
 import Image from "next/image";
@@ -9,7 +9,6 @@ import { server } from "../config";
 import QuestionContainer from "../components/QuestionContainer";
 import IconsRadioQuestion from "../components/IconsRadioQuestion";
 import ButtonQuestion from "../components/ButtonQuestion";
-import CheckboxQuestion from "../components/CheckboxQuestion";
 import RadioQuestion from "../components/RadioQuestion";
 import IconsQuestion from "../components/IconsQuestion";
 
@@ -107,51 +106,7 @@ const PageChangeTest = ({ questions }) => {
                   />
                 </div>
               </QuestionContainer>
-              {/* CHECKBOX QUESTION */}
-              <QuestionContainer
-                id={questions[1].checkboxQuestion.id}
-                text={questions[1].checkboxQuestion.text}
-                subText={questions[1].checkboxQuestion.subText}
-              >
-                <div className="flex gap-12">
-                  <div className="flex mt-12">
-                    <div className="flex flex-col md:flex-row items-start gap-3">
-                      <div className="min-w-[40px] min-h-[40px] w-12 h-12 p-2 hidden md:inline">
-                        <Image
-                          src={questions[1].checkboxQuestion.icon}
-                          width={50}
-                          height={50}
-                          objectFit="contain"
-                          alt="leaf"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-8 mt-2">
-                        <div className="flex">
-                          <div className="min-w-[30px] min-h-[30px] w-10 h-10 p-2 md:hidden">
-                            <Image
-                              src={questions[1].checkboxQuestion.icon}
-                              width={50}
-                              height={50}
-                              objectFit="contain"
-                              alt="leaf"
-                            />
-                          </div>
-                          <p className="text-[20px] font-bold text-secondaryText">
-                            {questions[1].checkboxQuestion.title}
-                          </p>
-                        </div>
-                        {questions[1].checkboxQuestion.questions.map((val) => (
-                          <CheckboxQuestion
-                            key={val.id}
-                            id={val.id}
-                            text={val.text}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </QuestionContainer>
+
               {/* SLIDER QUESTION */}
               <QuestionContainer
                 id={questions[6].sliderQuestion.id}
@@ -283,7 +238,7 @@ const PageChangeTest = ({ questions }) => {
           )}
           <div className="flex gap-8 py-12">
             {stepNo > 1 && <button onClick={stepBackwardHandler}>Back</button>}
-            <Button text="Next" action={stepForwardHandler} />
+            <ButtonComponent text="Next" action={stepForwardHandler} />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { server } from "../config";
 
 import ProgressBar from "../components/ProgressBar";
 import PageIntro from "../components/PageIntro";
-import ButtonComponents from "../components/ButtonComponents";
+import ButtonComponent from "../components/ButtonComponent";
 import QuestionContainer from "../components/QuestionContainer";
 import ButtonQuestion from "../components/ButtonQuestion";
 import IconsQuestion from "../components/IconsQuestion";
@@ -164,9 +164,9 @@ const Assessment = ({ questions }) => {
               </button>
             )}
             {stepNo !== 3 ? (
-              <ButtonComponents text="Next" action={stepForwardHandler} />
+              <ButtonComponent text="Next" action={stepForwardHandler} />
             ) : (
-              <ButtonComponents
+              <ButtonComponent
                 text="View recommendations"
                 action={stepForwardHandler}
               />
