@@ -2,4 +2,4 @@ const dev = process.env.NODE_ENV !== "production";
 
 export const server = dev
   ? "http://localhost:3000"
-  : "https://space-tourism-nextjs.netlify.app";
+  : "https://origin-shift.netlify.app";
