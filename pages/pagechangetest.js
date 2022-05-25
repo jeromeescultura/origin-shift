@@ -20,8 +20,8 @@ const PageChangeTest = () => {
 
   const [stepNo, setStepNo] = useState(1);
 
-  const questions = [
-    [
+  const questions = {
+    firstStep: [
       {
         id: 1,
         qst: "Are you currently looking to implement any specifiy sustainability or energy efficiency goals at your business for the future?",
@@ -62,7 +62,7 @@ const PageChangeTest = () => {
         },
       },
     ],
-    [
+    secondStep: [
       {
         id: 1,
         qst: [
@@ -137,7 +137,7 @@ const PageChangeTest = () => {
       },
     ],
 
-    [
+    thirdStep: [
       {
         id: 1,
         qst: "Would you prefer to support projects in Australia only, or a mix of local and international projects?",
@@ -165,9 +165,9 @@ const PageChangeTest = () => {
         },
       },
     ],
-  ];
+  };
 
-  const [stepPage, setPage] = useState();
+  const [stepPage, setPage] = useState(questions.firstStep);
 
   const assessIntro = [
     {
@@ -186,6 +186,10 @@ const PageChangeTest = () => {
       plant: plant3,
     },
   ];
+
+  const test = questions.secondStep[0].qst;
+
+  console.log("secondStep type", typeof questions.firstStep[0].qst);
 
   const [activeState, changeState] = useState(0);
 
@@ -207,8 +211,6 @@ const PageChangeTest = () => {
     if (stepNo >= 3) {
       setStepNo(3);
     }
-
-    setPage(questions[stepNo - 1]);
   };
 
   const stepBackwardHandler = () => {
@@ -229,11 +231,16 @@ const PageChangeTest = () => {
     if (stepNo <= 1) {
       setStepNo(1);
     }
-    setPage(questions[stepNo - 1]);
   };
 
   const questionsCycler = () => {
-    setPage(questions[stepNo - 1]);
+    if (stepNo === 1) {
+      setPage(questions.firstStep);
+    } else if (stepNo === 2) {
+      setPage(questions.secondStep);
+    } else {
+      setPage(questions.thirdStep);
+    }
   };
 
   useEffect(() => {
@@ -244,12 +251,11 @@ const PageChangeTest = () => {
     <div className="bg-primaryBG">
       <div className=" bg-assessment-bg bg-no-repeat bg-contain h-full">
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
-          {stepPage && stepPage[3] && <div>{stepPage[3].qst}</div>}
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
-          {/* <div className="space-y-12">
-            <Questions />
-          </div> */}
+          <div className="space-y-12">
+            <Questions questions={stepPage} />
+          </div>
           <div className="flex gap-8">
             <button onClick={stepBackwardHandler}>Back</button>
             <Button text="Next" action={stepForwardHandler} />

@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
-import Question1 from "./Question1";
-import Question2 from "./Question2";
-import Question3 from "./Question3";
+import Questions1 from "./Questions1";
+import Questions2 from "./Questions2";
+import Questions3 from "./Questions3";
+import Question4 from "./Question4";
 import SliderQuestion from "./sliderQuestion";
 
-const Questions = () => {
+const Questions = ({ questions }) => {
+  console.log("question", questions);
   return (
     <div className="space-y-12">
-      <Question1 />
-      <Question2 />
-      <Question3 />
+      <Questions1 qsts={questions[0]} />
+      <Questions2 qsts={questions[1]}/>
+      <Questions3 qsts={questions[2]} />
+      {questions[3] && <Question4 />}
     </div>
   );
 };

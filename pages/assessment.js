@@ -216,7 +216,7 @@ const Assessment = () => {
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
           <div className="space-y-12">
-            <Questions questions={stepPage} />
+            <Questions />
           </div>
           <div className="flex gap-8">
             <button onClick={stepBackwardHandler}>Back</button>
