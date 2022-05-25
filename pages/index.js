@@ -1,8 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
-import Button from "../components/button";
+import Router from "next/router";
+
+import ButtonComponents from "../components/ButtonComponents";
 
 export default function Home() {
+  const handleAssessmentBtn = () => {
+    const { pathname } = Router;
+    Router.push("/assessment");
+  };
   return (
     <div className="h-screen bg-gray-500 flex flex-col">
       <div className="bg-white py-2 pl-8">
@@ -38,7 +44,10 @@ export default function Home() {
             and the environment.
           </p>
           <div className="flex flex-col md:flex-row gap-4 mt-16">
-            <Button text="Start assessment" />
+            <ButtonComponents
+              text="Start assessment"
+              action={handleAssessmentBtn}
+            />
             <button className="text-secondaryBG border-secondaryBG border rounded-full py-2 px-8">
               Let's have a chat
             </button>

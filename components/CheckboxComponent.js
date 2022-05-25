@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-function CheckboxQuestion({ id, text, action }) {
+function CheckboxComponent({ id, text, action }) {
   const [selected, setSelected] = useState(false);
 
   const handleSelected = () => {
@@ -13,7 +13,7 @@ function CheckboxQuestion({ id, text, action }) {
         className="form-check-input appearance-none min-h-g[24px] min-w-[24px] w-6 h-6 border-2 border-[#737373] rounded-sm bg-white checked:bg-darkHighlight checked:border-darkHighlight focus:outline-none transition duration-200 cursor-pointer"
         type="checkbox"
         value=""
-        id={id}
+        id={text}
         onChange={handleSelected}
         checked={selected && true}
       />
@@ -32,7 +32,7 @@ function CheckboxQuestion({ id, text, action }) {
       </div>
       <label
         className="form-check-label inline-block text-secondaryText font-light text-sm md:text-base"
-        htmlFor={id}
+        htmlFor={text}
       >
         {text}
       </label>
@@ -40,4 +40,4 @@ function CheckboxQuestion({ id, text, action }) {
   );
 }
 
-export default CheckboxQuestion;
+export default CheckboxComponent;
