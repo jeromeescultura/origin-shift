@@ -1,7 +1,7 @@
 const questions = [
   {
     iconsQuestion: {
-      id: "04",
+      id: "02",
       text: "What sort of energy sources do you rely on?",
       subText: "Select all that apply.",
       options: [
@@ -48,7 +48,7 @@ const questions = [
   },
   {
     radioQuestion: {
-      id: "03",
+      id: "01",
       text: "How many business sites are you responsible for the energy management of?",
       options: [
         {
@@ -84,7 +84,7 @@ const questions = [
   },
   {
     dropdownQuestion: {
-      id: "04",
+      id: "01",
       text: "What type of industry do your work in?",
       options: [
         {
@@ -108,18 +108,46 @@ const questions = [
   },
   {
     iconsRadioQuestion: {
-      id: "05",
+      id: "01",
       text: "Would you prefer to support projects in Australia only, or a mix of local and international projects?",
       options: [
         {
           id: 1,
-          icon: "/icons/au.png",
+          icon: "/icons/au.svg",
           text: "australian only",
         },
         {
           id: 2,
-          icon: "/icons/world.png",
+          icon: "/icons/world.svg",
           text: "a mix",
+        },
+      ],
+    },
+  },
+  {
+    sliderQuestion: {
+      id: "03",
+      text: "How important is reducing your business’ impact on the environment to you?",
+      options: [
+        {
+          id: 1,
+          text: "Not Important",
+        },
+        {
+          id: 2,
+          text: "",
+        },
+        {
+          id: 3,
+          text: "",
+        },
+        {
+          id: 4,
+          text: "",
+        },
+        {
+          id: 5,
+          text: "Very Important",
         },
       ],
     },
