@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-const IconsRadioQuestion = ({ qst }) => {
+const IconsRadioQuestion = ({ options }) => {
   const [activeState, changeState] = useState(1);
 
   return (
     <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 mt-12">
-      {qst.map((val, index) => (
+      {options && options.map((val, index) => (
         <div
           key={val.id}
           onClick={() => changeState(val.id)}

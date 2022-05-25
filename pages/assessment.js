@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { server } from "../config";
-
 import ProgressBar from "../components/ProgressBar";
 import PageIntro from "../components/PageIntro";
 import ButtonComponent from "../components/ButtonComponent";
@@ -9,12 +8,16 @@ import ButtonQuestion from "../components/ButtonQuestion";
 import IconsQuestion from "../components/IconsQuestion";
 import CheckboxContainer from "../components/CheckboxContainer";
 import RadioQuestion from "../components/RadioQuestion";
+import SliderQuestion from "../components/SliderQuestion";
+import IconsRadioQuestion from "../components/IconsRadioQuestion";
 
 const Assessment = ({ questions }) => {
   const [buttonQuestions, setButtonQuestions] = useState({});
   const [checkboxQuestions, setCheckboxQuestions] = useState({});
   const [radioQuestions, setRadioQuestions] = useState({});
   const [iconsQuestions, setIconsQuestions] = useState({});
+  const [sliderQuestions, setSliderQuestions] = useState({});
+  const [iconsRadioQuestions, setIconsRadioQuestions] = useState({});
 
   useEffect(() => {
     questions.map((item) => {
@@ -26,6 +29,10 @@ const Assessment = ({ questions }) => {
         setRadioQuestions(item.radioQuestion);
       } else if (item.iconsQuestion !== undefined) {
         setIconsQuestions(item.iconsQuestion);
+      } else if (item.sliderQuestion !== undefined) {
+        setSliderQuestions(item.sliderQuestion);
+      } else if (item.iconsRadioQuestion !== undefined) {
+        setIconsRadioQuestions(item.iconsRadioQuestion);
       }
     });
   }, [questions]);
@@ -60,6 +67,7 @@ const Assessment = ({ questions }) => {
   const [activeState, changeState] = useState(0);
 
   const stepForwardHandler = () => {
+    window.scrollTo(0, 0);
     if (step.secondStep === "w-0 opacity-0") {
       setStep({ ...step, secondStep: "w-full opacity-100" });
     } else if (step.thirdStep === "w-0 opacity-0") {
@@ -81,6 +89,7 @@ const Assessment = ({ questions }) => {
   };
 
   const stepBackwardHandler = () => {
+    window.scrollTo(0, 0);
     if (step.thirdStep === "w-full opacity-100") {
       setStep({ ...step, thirdStep: "w-0 opacity-0" });
     } else if (step.secondStep === "w-full opacity-100") {
@@ -107,53 +116,77 @@ const Assessment = ({ questions }) => {
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
 
-          <div className="space-y-8">
-            <QuestionContainer
-              id={buttonQuestions?.id}
-              text={buttonQuestions?.text}
-            >
-              <ButtonQuestion options={buttonQuestions?.options} />
-            </QuestionContainer>
-            <QuestionContainer
-              id={checkboxQuestions?.id}
-              text={checkboxQuestions?.text}
-              subText={checkboxQuestions?.subText}
-            >
-              <CheckboxContainer
-                icon={checkboxQuestions?.icon}
-                title={checkboxQuestions?.title}
-                questionsList={checkboxQuestions?.questionsList}
-              />
-            </QuestionContainer>
+          {stepNo === 1 && (
+            <div className="space-y-8">
+              <QuestionContainer
+                id={buttonQuestions?.id}
+                text={buttonQuestions?.text}
+              >
+                <ButtonQuestion options={buttonQuestions?.options} />
+              </QuestionContainer>
+              <QuestionContainer
+                id={checkboxQuestions?.id}
+                text={checkboxQuestions?.text}
+                subText={checkboxQuestions?.subText}
+              >
+                <CheckboxContainer
+                  icon={checkboxQuestions?.icon}
+                  title={checkboxQuestions?.title}
+                  questionsList={checkboxQuestions?.questionsList}
+                />
+              </QuestionContainer>
+              <QuestionContainer
+                id={sliderQuestions?.id}
+                text={sliderQuestions?.text}
+              >
+                <SliderQuestion options={sliderQuestions?.options} />
+              </QuestionContainer>
+            </div>
+          )}
 
-            <QuestionContainer
-              id={radioQuestions?.id}
-              text={radioQuestions?.text}
-            >
-              {radioQuestions &&
-                radioQuestions.options?.map((item, index) => (
-                  <RadioQuestion id={index} text={item.text} key={index} />
-                ))}
-            </QuestionContainer>
-            <QuestionContainer
-              id={iconsQuestions.id}
-              text={iconsQuestions.text}
-              subText={iconsQuestions.subText}
-            >
-              <div className="space-y-8 mt-12">
-                <div className="flex flex-col lg:flex-row gap-2 md:gap-4">
-                  {iconsQuestions.options?.map((item, index) => (
-                    <IconsQuestion
-                      key={index}
-                      id={index}
-                      text={item.text}
-                      icon={item.icon}
-                    />
+          {stepNo === 2 && (
+            <div className="space-y-8">
+              <QuestionContainer
+                id={radioQuestions?.id}
+                text={radioQuestions?.text}
+              >
+                {radioQuestions &&
+                  radioQuestions.options?.map((item, index) => (
+                    <RadioQuestion id={index} text={item.text} key={index} />
                   ))}
+              </QuestionContainer>
+              <QuestionContainer
+                id={iconsQuestions.id}
+                text={iconsQuestions.text}
+                subText={iconsQuestions.subText}
+              >
+                <div className="space-y-8 mt-12">
+                  <div className="flex flex-col lg:flex-row gap-2 md:gap-4">
+                    {iconsQuestions.options?.map((item, index) => (
+                      <IconsQuestion
+                        key={index}
+                        id={index}
+                        text={item.text}
+                        icon={item.icon}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </QuestionContainer>
-          </div>
+              </QuestionContainer>
+            </div>
+          )}
+
+          {stepNo === 3 && (
+            <div className="space-y-8">
+              <QuestionContainer
+                id={iconsRadioQuestions?.id}
+                text={iconsRadioQuestions?.text}
+              >
+                <IconsRadioQuestion options={iconsRadioQuestions?.options} />
+              </QuestionContainer>
+            </div>
+          )}
+
           <div className="flex gap-16 mt-16">
             {stepNo !== 1 && (
               <button
