@@ -1,4 +1,4 @@
-function Button({ text, action }) {
+function ButtonComponent({ text, action }) {
   return (
     <button
       className="bg-secondaryBG text-white rounded-full px-8 py-2 hover:bg-red-600 "
@@ -9,4 +9,4 @@ function Button({ text, action }) {
   );
 }
 
-export default Button;
+export default ButtonComponent;
