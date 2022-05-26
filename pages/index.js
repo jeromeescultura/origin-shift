@@ -127,7 +127,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="flex  lg:flex overflow-y-hidden overflow-x-scroll scrollbar-hide gap-4 ">
+        <div className="flex overflow-y-hidden overflow-x-scroll scrollbar-hide gap-4 md:pl-8">
           <div className="bg-white w-[300px] sm:w-[240px] md:w-[320px] lg:w-[350px] px-8 py-10 rounded-xl flex flex-col gap-2 items-center text-center space-y-6">
             <div className="w-12 h-12">
               <Image
