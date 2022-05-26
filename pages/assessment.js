@@ -18,11 +18,13 @@ const Assessment = ({ questions }) => {
   const [iconsQuestions, setIconsQuestions] = useState({});
   const [sliderQuestions, setSliderQuestions] = useState({});
   const [iconsRadioQuestions, setIconsRadioQuestions] = useState({});
+  const [stepOneQuestions, setStepOne] = useState([]);
 
   useEffect(() => {
     questions.map((item) => {
       if (item.buttonQuestion !== undefined) {
         setButtonQuestions(item.buttonQuestion);
+        setStepOne([...stepOneQuestions, item.buttonQuestion]);
       } else if (item.checkboxQuestion !== undefined) {
         setCheckboxQuestions(item.checkboxQuestion);
       } else if (item.radioQuestion !== undefined) {
@@ -33,6 +35,10 @@ const Assessment = ({ questions }) => {
         setSliderQuestions(item.sliderQuestion);
       } else if (item.iconsRadioQuestion !== undefined) {
         setIconsRadioQuestions(item.iconsRadioQuestion);
+      }
+
+      if (stepOneQuestions) {
+        console.log(stepOneQuestions);
       }
     });
   }, [questions]);
@@ -115,15 +121,16 @@ const Assessment = ({ questions }) => {
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
-
           {stepNo === 1 && (
             <div className="space-y-8">
+              {/* BUTTON QUESTIONS */}
               <QuestionContainer
                 id={buttonQuestions?.id}
                 text={buttonQuestions?.text}
               >
                 <ButtonQuestion options={buttonQuestions?.options} />
               </QuestionContainer>
+              {/* CHECKBOX QUESTIONS */}
               <QuestionContainer
                 id={checkboxQuestions?.id}
                 text={checkboxQuestions?.text}
@@ -135,6 +142,7 @@ const Assessment = ({ questions }) => {
                   questionsList={checkboxQuestions?.questionsList}
                 />
               </QuestionContainer>
+              {/* SLIDER QUESTIONS */}
               <QuestionContainer
                 id={sliderQuestions?.id}
                 text={sliderQuestions?.text}
