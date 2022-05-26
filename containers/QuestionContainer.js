@@ -1,9 +1,15 @@
 function QuestionContainer(props) {
   return (
     <div
-      className={`${props.style} bg-white rounded-3xl lg:py-24 lg:pl-16 lg:pr-24 px-4 py-8 md:px-6 `}
+      className={`${
+        props.style ? `${props.style} pt-12` : "px-4 lg:pl-16 lg:pr-24 md:px-6 lg:py-24 py-8"
+      } bg-white rounded-3xl`}
     >
-      <div className="flex flex-col lg:flex-row gap-4 md:gap-12">
+      <div
+        className={`flex flex-col lg:flex-row ${
+          props.style ? "" : "gap-4 md:gap-12"
+        }`}
+      >
         <div>
           <p className="text-4xl md:text-[46px] lg:text-[64px] text-primaryText">
             {props.id}

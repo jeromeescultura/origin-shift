@@ -5,11 +5,20 @@ import CheckboxContainer from "../components/CheckboxContainer";
 import SliderQuestion from "../components/SliderQuestion";
 import QuestionContainer from "./QuestionContainer";
 
-const StepOneContainer = ({ btnQsts, chkBoxQsts, sldrQsts }) => {
+const StepOneContainer = ({ btnQsts, chkBoxQsts, sldrQsts, glsQsts }) => {
   return (
     <>
       <QuestionContainer id={btnQsts?.id} text={btnQsts?.text}>
         <ButtonQuestion options={btnQsts?.options} />
+        <QuestionContainer style={"px-0"} text={glsQsts?.text}>
+          <div className="w-full h-48 mt-6 lg:mt-12">
+            <textarea
+              name=""
+              id=""
+              className="w-full h-full border-2 rounded-xl resize-none focus:outline-none p-1"
+            ></textarea>
+          </div>
+        </QuestionContainer>
       </QuestionContainer>
       <QuestionContainer
         id={chkBoxQsts[0]?.id}
