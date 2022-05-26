@@ -33,7 +33,7 @@ const SliderQuestion = ({ qst }) => {
     <div className="w-full">
       <div className="mt-12 bg-[#FFB43255] flex items-center w-full md:h-7 rounded-full relative">
         <div
-          className={`flex  rounded-full bg-[#FFB432]  transition-all ease-linear duration-100 h-full min-h-[10px] ${ulWidth}`}
+          className={`flex  rounded-full bg-accentColor  transition-all ease-linear duration-100 h-full min-h-[10px] ${ulWidth}`}
         ></div>
         <div className="w-full absolute ">
           <ul className="flex h-full rounded-full  transition-all ease-linear duration-100  w-full justify-between">
@@ -45,11 +45,11 @@ const SliderQuestion = ({ qst }) => {
                     onClick={() => toggleActive(val.id)}
                     className={`w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full transition-all ease-linear duration-300 ${
                       val.id > sliderChoice
-                        ? "bg-[#FFB432] hover:bg-[#d5982d]"
+                        ? "bg-accentColor hover:bg-[#d5982d]"
                         : "bg-white"
                     } ${
                       sliderChoice === val.id
-                        ? "scale-[250%] md:scale-[400%] bg-[#FFB432] hover:bg-[#FFB432] drop-shadow-sm"
+                        ? "scale-[250%] md:scale-[400%] bg-accentColor hover:bg-accentColor drop-shadow-sm"
                         : "hover:scale-125 cursor-pointer"
                     }`}
                   ></button>

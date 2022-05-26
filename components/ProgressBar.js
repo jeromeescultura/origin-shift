@@ -21,15 +21,15 @@ const ProgressBar = ({ step, stepNo }) => {
         </div>
       </div>
       <div className="w-full md:w-[50%] h-[8px] flex flex-row justify-between gap-2 md:gap-2">
-        <div className="first-step w-full h-[8px] bg-[#FFB432]"></div>
+        <div className="first-step w-full h-[8px] bg-accentColor"></div>
         <div className="second-step w-full h-[8px] relative bg-[#F1F1F1]">
           <div
-            className={`second-step-inner bg-[#FFB432] h-full transition-all ease-linear duration-200 ${step.secondStep}`}
+            className={`second-step-inner bg-accentColor h-full transition-all ease-linear duration-200 ${step.secondStep}`}
           ></div>
         </div>
         <div className="third-step w-full h-[8px] bg-[#F1F1F1]">
           <div
-            className={`third-step-inner bg-[#FFB432] h-full transition-all ease-linear duration-200 ${step.thirdStep}`}
+            className={`third-step-inner bg-accentColor h-full transition-all ease-linear duration-200 ${step.thirdStep}`}
           ></div>
         </div>
       </div>
