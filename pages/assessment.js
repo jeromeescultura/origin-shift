@@ -4,12 +4,13 @@ import { server } from "../config";
 import ProgressBar from "../components/ProgressBar";
 import PageIntro from "../components/PageIntro";
 import ButtonComponent from "../components/ButtonComponent";
-import QuestionContainer from "../components/QuestionContainer";
+import QuestionContainer from "../containers/QuestionContainer";
 import ButtonQuestion from "../components/ButtonQuestion";
 import IconsQuestion from "../components/IconsQuestion";
 import CheckboxContainer from "../components/CheckboxContainer";
 import RadioQuestion from "../components/RadioQuestion";
 import SliderQuestion from "../components/SliderQuestion";
+import StepOneContainer from "../containers/StepOneContainer";
 
 const Assessment = ({ questions }) => {
   const [buttonQuestions, setButtonQuestions] = useState({});
@@ -33,6 +34,7 @@ const Assessment = ({ questions }) => {
       }
     });
   }, [questions]);
+
 
   const [step, setStep] = useState({
     secondStep: "w-0 opacity-0",
@@ -111,46 +113,20 @@ const Assessment = ({ questions }) => {
     }
   };
 
-  console.log(sliderQuestion);
   return (
     <div className="bg-primaryBG h-full pb-16">
       <div className="bg-assessment-bg bg-no-repeat bg-contain h-full">
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
-
           <div className="space-y-8">
             {/* Step 1 */}
             {stepNo === 1 && (
-              <>
-                <QuestionContainer
-                  id={buttonQuestions?.id}
-                  text={buttonQuestions?.text}
-                >
-                  <ButtonQuestion options={buttonQuestions?.options} />
-                </QuestionContainer>
-                <QuestionContainer
-                  id={checkboxQuestions[0]?.id}
-                  text={checkboxQuestions[0]?.text}
-                  subText={checkboxQuestions[0]?.subText}
-                >
-                  {checkboxQuestions?.map((item) => (
-                    <CheckboxContainer
-                      icon={item?.icon}
-                      title={item?.title}
-                      questionsList={item?.questionsList}
-                    />
-                  ))}
-                </QuestionContainer>
-
-                {/* SLIDER QUESTION */}
-                <QuestionContainer
-                  id={sliderQuestion?.id}
-                  text={sliderQuestion?.text}
-                >
-                  <SliderQuestion qst={sliderQuestion?.options} />
-                </QuestionContainer>
-              </>
+              <StepOneContainer
+                btnQsts={buttonQuestions}
+                chkBoxQsts={checkboxQuestions}
+                sldrQsts={sliderQuestion}
+              />
             )}
 
             {/* Step 2 */}

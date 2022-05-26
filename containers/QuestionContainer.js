@@ -3,7 +3,7 @@ function QuestionContainer(props) {
     <div
       className={`${props.style} bg-white rounded-3xl lg:py-24 lg:pl-16 lg:pr-24 px-4 py-8 md:px-6 `}
     >
-      <div className="flex gap-4 md:gap-12">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-12">
         <div>
           <p className="text-4xl md:text-[46px] lg:text-[64px] text-primaryText">
             {props.id}
