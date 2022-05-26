@@ -4,19 +4,27 @@ import logo from "../assets/logo.png";
 
 const ProgressBar = ({ step, stepNo }) => {
   return (
-    <div className="flex flex-col justify-between items-start mt-16 md:mt-28">
-      <div className="flex w-full gap-16">
+    <div className="flex flex-col items-start mt-6 lg:mt-14">
+      <div className="w-10 h-10 lg:hidden">
+        <Image src={logo} alt="logo" height={107} width={87} />
+      </div>
+      <div className="flex w-full gap-16 mt-12">
         <div className="flex items-center grow mb-6 justify-between md:grow-0 md:w-[50%]">
-          <p className="text-sm md:text-[20px]">Step {stepNo} of 3</p>
-          <button className="border border-[#505050] text-xs md:text-base rounded-full py-2 px-8 focus:bg-black focus:text-white transition-all ease-linear duration-100">
-            Save my progress
+          <p className="text-sm lg:text-[20px]">Step {stepNo} of 3</p>
+          <button className="lg:border lg:border-[#505050] text-sm text-primaryText active:scale-95 lg:text-black lg:text-base rounded-full py-2 lg:px-8 lg:focus:bg-black lg:focus:text-white transition-all ease-linear duration-100 flex">
+            <span className="flex items-center lg:hidden mr-2">
+              <Image
+                src="/icons/save_icon.svg"
+                width={15}
+                height={15}
+                alt="save_icon"
+              />
+            </span>
+            <p>Save my progress</p>
           </button>
-          <div className="w-10 h-10 md:w-20 md:h-20 md:hidden">
-            <Image src={logo} alt="logo" height={107} width={87} />
-          </div>
         </div>
 
-        <div className="w-10 h-10 md:w-20 md:h-20 hidden md:inline ml-auto">
+        <div className="w-10 h-10 md:w-20 md:h-20 hidden lg:inline ml-auto">
           <Image src={logo} alt="logo" height={107} width={87} />
         </div>
       </div>
