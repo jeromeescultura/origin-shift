@@ -37,29 +37,30 @@ const SliderQuestion = ({ qst }) => {
         ></div>
         <div className="w-full absolute ">
           <ul className="flex h-full rounded-full  transition-all ease-linear duration-100  w-full justify-between">
-            {qst.map((val, index) => (
-              <li key={val.id} className="flex items-center">
-                <button
-                  id={val.id}
-                  onClick={() => toggleActive(val.id)}
-                  className={`w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full transition-all ease-linear duration-300 ${
-                    val.id > sliderChoice
-                      ? "bg-[#FFB432] hover:bg-[#d5982d]"
-                      : "bg-white"
-                  } ${
-                    sliderChoice === val.id
-                      ? "scale-[250%] md:scale-[400%] bg-[#FFB432] hover:bg-[#FFB432] drop-shadow-sm"
-                      : "hover:scale-125 cursor-pointer"
-                  }`}
-                ></button>
-              </li>
-            ))}
+            {qst &&
+              qst.map((val, index) => (
+                <li key={val.id} className="flex items-center">
+                  <button
+                    id={val.id}
+                    onClick={() => toggleActive(val.id)}
+                    className={`w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full transition-all ease-linear duration-300 ${
+                      val.id > sliderChoice
+                        ? "bg-[#FFB432] hover:bg-[#d5982d]"
+                        : "bg-white"
+                    } ${
+                      sliderChoice === val.id
+                        ? "scale-[250%] md:scale-[400%] bg-[#FFB432] hover:bg-[#FFB432] drop-shadow-sm"
+                        : "hover:scale-125 cursor-pointer"
+                    }`}
+                  ></button>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
       <div className="labels mt-5 md:mt-10 text-sm md:text-[16px] leading-[24px] flex justify-between">
-        <label htmlFor={qst[0].id}>Not Important</label>
-        <label htmlFor={qst[1].id}>Very Important</label>
+        <label>Not Important</label>
+        <label>Very Important</label>
       </div>
     </div>
   );

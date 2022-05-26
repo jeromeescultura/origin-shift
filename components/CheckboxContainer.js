@@ -29,9 +29,14 @@ function CheckboxContainer({ icon, title, questionsList }) {
               </p>
             </div>
 
-            {questionsList?.map((item) => (
-              <CheckboxComponent id={item.id} text={item.text} key={item.id} />
-            ))}
+            {questionsList &&
+              questionsList?.map((item) => (
+                <CheckboxComponent
+                  id={item.id}
+                  text={item.text}
+                  key={item.id}
+                />
+              ))}
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ const IconsRadioQuestion = ({ qst }) => {
           onClick={() => changeState(val.id)}
           className={`w-[219px] h-[178px] flex justify-center flex-col items-center bg-white  text-[#505050] font-light text-center border rounded-md text-[16px]  capitalize cursor-pointer mr-6 transition-all duration-100 ease-linear ${
             activeState === val.id
-              ? "bg-highlight border-darkHighlight"
+              ? "bg-highlight border-accentColor"
               : "hover:border-gray-400"
           }`}
         >

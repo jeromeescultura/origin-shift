@@ -24,39 +24,64 @@ const questions = [
     },
   },
   {
-    checkboxQuestion: {
-      id: "02",
-      icon: "/icons/flame.svg",
-      title: "General operations changes",
-      text: "What sort of changes have been implemented (if any) to help reduce the impact your business has on the environment?",
-      subText: "Select none or as many that apply.",
-      questionsList: [
-        {
-          id: 1,
-          text: "Replaced some or all energy inneficient equipment at your site(s) with more efficient ones",
-        },
-        {
-          id: 2,
-          text: "Switch to an energy plan that carbon offsets your energy use",
-        },
-        {
-          id: 3,
-          text: "Invested in renewable generators through programs like GreenPower, to feed renewables into the grid",
-        },
-        {
-          id: 4,
-          text: "Installed solar at your site(s)",
-        },
-        {
-          id: 5,
-          text: "Added battery storage to your solar system",
-        },
-        {
-          id: 6,
-          text: "Replaced some or all of your vehicle fleet with electric vehicles",
-        },
-      ],
-    },
+    checkboxQuestion: [
+      {
+        id: "02",
+        icon: "/icons/bulb.svg",
+        title: "Energy sourcing changes",
+        text: "What sort of changes have been implemented (if any) to help reduce the impact your business has on the environment?",
+        subText: "Select none or as many that apply.",
+        questionsList: [
+          {
+            id: 1,
+            text: "Replaced some or all energy inneficient equipment at your site(s) with more efficient ones",
+          },
+          {
+            id: 2,
+            text: "Switch to an energy plan that carbon offsets your energy use",
+          },
+          {
+            id: 3,
+            text: "Invested in renewable generators through programs like GreenPower, to feed renewables into the grid",
+          },
+          {
+            id: 4,
+            text: "Installed solar at your site(s)",
+          },
+          {
+            id: 5,
+            text: "Added battery storage to your solar system",
+          },
+          {
+            id: 6,
+            text: "Replaced some or all of your vehicle fleet with electric vehicles",
+          },
+        ],
+      },
+      {
+        id: "02",
+        icon: "/icons/flame.svg",
+        title: "General operations changes",
+        questionsList: [
+          {
+            id: 1,
+            text: "Replaced some or all packaging used for your business to use more sustainable alternatives",
+          },
+          {
+            id: 2,
+            text: "Digitised some or all paper based processes at the sites (s)",
+          },
+          {
+            id: 3,
+            text: "Introduced recycling and waste reduction processes at office sites",
+          },
+          {
+            id: 4,
+            text: "Optimised supply chain processes to reduce material wastage",
+          },
+        ],
+      },
+    ],
   },
   {
     radioQuestion: {

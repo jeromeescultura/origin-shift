@@ -9,12 +9,14 @@ import ButtonQuestion from "../components/ButtonQuestion";
 import IconsQuestion from "../components/IconsQuestion";
 import CheckboxContainer from "../components/CheckboxContainer";
 import RadioQuestion from "../components/RadioQuestion";
+import SliderQuestion from "../components/SliderQuestion";
 
 const Assessment = ({ questions }) => {
   const [buttonQuestions, setButtonQuestions] = useState({});
-  const [checkboxQuestions, setCheckboxQuestions] = useState({});
+  const [checkboxQuestions, setCheckboxQuestions] = useState([]);
   const [radioQuestions, setRadioQuestions] = useState({});
   const [iconsQuestions, setIconsQuestions] = useState({});
+  const [sliderQuestion, setSliderQuestion] = useState({});
 
   useEffect(() => {
     questions.map((item) => {
@@ -26,6 +28,8 @@ const Assessment = ({ questions }) => {
         setRadioQuestions(item.radioQuestion);
       } else if (item.iconsQuestion !== undefined) {
         setIconsQuestions(item.iconsQuestion);
+      } else if (item.sliderQuestion !== undefined) {
+        setSliderQuestion(item.sliderQuestion);
       }
     });
   }, [questions]);
@@ -59,6 +63,10 @@ const Assessment = ({ questions }) => {
 
   const [activeState, changeState] = useState(0);
 
+  const backToTop = () => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   const stepForwardHandler = () => {
     if (step.secondStep === "w-0 opacity-0") {
       setStep({ ...step, secondStep: "w-full opacity-100" });
@@ -78,9 +86,11 @@ const Assessment = ({ questions }) => {
       setStepNo(3);
       setPage(questions[stepNo - 1]);
     }
+    backToTop();
   };
 
   const stepBackwardHandler = () => {
+    backToTop();
     if (step.thirdStep === "w-full opacity-100") {
       setStep({ ...step, thirdStep: "w-0 opacity-0" });
     } else if (step.secondStep === "w-full opacity-100") {
@@ -100,6 +110,8 @@ const Assessment = ({ questions }) => {
       setPage(questions[stepNo - 1]);
     }
   };
+
+  console.log(sliderQuestion);
   return (
     <div className="bg-primaryBG h-full pb-16">
       <div className="bg-assessment-bg bg-no-repeat bg-contain h-full">
@@ -108,51 +120,72 @@ const Assessment = ({ questions }) => {
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
 
           <div className="space-y-8">
-            <QuestionContainer
-              id={buttonQuestions?.id}
-              text={buttonQuestions?.text}
-            >
-              <ButtonQuestion options={buttonQuestions?.options} />
-            </QuestionContainer>
-            <QuestionContainer
-              id={checkboxQuestions?.id}
-              text={checkboxQuestions?.text}
-              subText={checkboxQuestions?.subText}
-            >
-              <CheckboxContainer
-                icon={checkboxQuestions?.icon}
-                title={checkboxQuestions?.title}
-                questionsList={checkboxQuestions?.questionsList}
-              />
-            </QuestionContainer>
-
-            <QuestionContainer
-              id={radioQuestions?.id}
-              text={radioQuestions?.text}
-            >
-              {radioQuestions &&
-                radioQuestions.options?.map((item, index) => (
-                  <RadioQuestion id={index} text={item.text} key={index} />
-                ))}
-            </QuestionContainer>
-            <QuestionContainer
-              id={iconsQuestions.id}
-              text={iconsQuestions.text}
-              subText={iconsQuestions.subText}
-            >
-              <div className="space-y-8 mt-12">
-                <div className="flex flex-col lg:flex-row gap-2 md:gap-4">
-                  {iconsQuestions.options?.map((item, index) => (
-                    <IconsQuestion
-                      key={index}
-                      id={index}
-                      text={item.text}
-                      icon={item.icon}
+            {/* Step 1 */}
+            {stepNo === 1 && (
+              <>
+                <QuestionContainer
+                  id={buttonQuestions?.id}
+                  text={buttonQuestions?.text}
+                >
+                  <ButtonQuestion options={buttonQuestions?.options} />
+                </QuestionContainer>
+                <QuestionContainer
+                  id={checkboxQuestions[0]?.id}
+                  text={checkboxQuestions[0]?.text}
+                  subText={checkboxQuestions[0]?.subText}
+                >
+                  {checkboxQuestions?.map((item) => (
+                    <CheckboxContainer
+                      icon={item?.icon}
+                      title={item?.title}
+                      questionsList={item?.questionsList}
                     />
                   ))}
-                </div>
-              </div>
-            </QuestionContainer>
+                </QuestionContainer>
+
+                {/* SLIDER QUESTION */}
+                <QuestionContainer
+                  id={sliderQuestion?.id}
+                  text={sliderQuestion?.text}
+                >
+                  <SliderQuestion qst={sliderQuestion?.options} />
+                </QuestionContainer>
+              </>
+            )}
+
+            {/* Step 2 */}
+
+            {stepNo === 2 && (
+              <>
+                <QuestionContainer
+                  id={radioQuestions?.id}
+                  text={radioQuestions?.text}
+                >
+                  {radioQuestions &&
+                    radioQuestions.options?.map((item, index) => (
+                      <RadioQuestion id={index} text={item.text} key={index} />
+                    ))}
+                </QuestionContainer>
+                <QuestionContainer
+                  id={iconsQuestions.id}
+                  text={iconsQuestions.text}
+                  subText={iconsQuestions.subText}
+                >
+                  <div className="space-y-8 mt-12">
+                    <div className="flex flex-col lg:flex-row gap-2 md:gap-4">
+                      {iconsQuestions.options?.map((item, index) => (
+                        <IconsQuestion
+                          key={index}
+                          id={index}
+                          text={item.text}
+                          icon={item.icon}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </QuestionContainer>
+              </>
+            )}
           </div>
           <div className="flex gap-16 mt-16">
             {stepNo !== 1 && (

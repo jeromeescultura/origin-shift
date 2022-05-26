@@ -18,7 +18,7 @@ function IconsQuestion({ id, text, icon }) {
       </div>
       <div className="flex gap-1 md:gap-4 items-center">
         <input
-          className="relative form-check-input appearance-none h-6 w-6 border-2 border-[#737373] cursor-pointer rounded-sm bg-white checked:bg-darkHighlight checked:border-darkHighlight focus:outline-none transition duration-200"
+          className="relative form-check-input appearance-none h-6 w-6 border-2 border-[#737373] cursor-pointer rounded-sm bg-white checked:bg-accentColor checked:border-accentColor focus:outline-none transition duration-200"
           type="checkbox"
           value=""
           id={id}

@@ -39,11 +39,11 @@ const PageChangeTest = ({ questions }) => {
   ];
 
   const [activeState, changeState] = useState(0);
-const backToTop = () => {
-window.scroll({ top: 0, left: 0, behavior: "smooth" });
-}
+  const backToTop = () => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  };
   const stepForwardHandler = () => {
-backToTop()
+    backToTop();
     if (step.secondStep === "w-0 opacity-0") {
       setStep({ ...step, secondStep: "w-full opacity-100" });
     } else if (step.thirdStep === "w-0 opacity-0") {
@@ -64,7 +64,7 @@ backToTop()
   };
 
   const stepBackwardHandler = () => {
-backToTop()
+    backToTop();
     if (step.thirdStep === "w-full opacity-100") {
       setStep({ ...step, thirdStep: "w-0 opacity-0" });
     } else if (step.secondStep === "w-full opacity-100") {
@@ -83,8 +83,6 @@ backToTop()
       setStepNo(1);
     }
   };
-
-  console.log(questions[3].buttonQuestion);
 
   return (
     <div className="bg-primaryBG">
