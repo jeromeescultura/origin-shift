@@ -1,8 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import logo from "../assets/logo.png";
+import { useRouter } from "next/router";
 
 const ProgressBar = ({ step, stepNo }) => {
+  const router = useRouter();
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/");
+  };
   return (
     <div className="flex flex-col justify-between items-start mt-16 md:mt-28">
       <div className="flex w-full gap-16">
@@ -11,13 +17,25 @@ const ProgressBar = ({ step, stepNo }) => {
           <button className="border border-[#505050] text-xs md:text-base rounded-full py-2 px-8 focus:bg-black focus:text-white transition-all ease-linear duration-100">
             Save my progress
           </button>
-          <div className="w-10 h-10 md:w-20 md:h-20 md:hidden">
-            <Image src={logo} alt="logo" height={107} width={87} />
+          <div className="w-10 h-10 md:w-20 cursor-pointer md:h-20 md:hidden">
+            <Image
+              onClick={handleClick}
+              src={logo}
+              alt="logo"
+              height={107}
+              width={87}
+            />
           </div>
         </div>
 
-        <div className="w-10 h-10 md:w-20 md:h-20 hidden md:inline ml-auto">
-          <Image src={logo} alt="logo" height={107} width={87} />
+        <div className="w-10 h-10 md:w-20 cursor-pointer md:h-20 hidden md:inline ml-auto">
+          <Image
+            onClick={handleClick}
+            src={logo}
+            alt="logo"
+            height={107}
+            width={87}
+          />
         </div>
       </div>
       <div className="w-full md:w-[50%] h-[8px] flex flex-row justify-between gap-2 md:gap-2">
