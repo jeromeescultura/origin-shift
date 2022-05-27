@@ -6,10 +6,10 @@ function ButtonQuestion({ options, action }) {
   const [btn3, setBtn3] = useState(false);
 
   const activeStyles =
-    "z-50 bg-highlight border-accentColor text-xs max-w-[200px] lg:text-base w-full h-[48px] bg-white text-[#505050] font-light text-center border transition duration-200";
+    "z-50 bg-highlight border-darkHighlight text-sm max-w-[200px] lg:text-base w-full h-[48px] bg-white text-[#505050] font-light text-center border transition duration-200";
 
   const notActiveStyles =
-    "text-xs max-w-[200px] lg:text-base w-full h-[48px] bg-white  text-[#505050] font-light text-center border   transition duration-200";
+    "text-sm max-w-[200px] lg:text-base w-full h-[48px] bg-white  text-[#505050] font-light text-center border   transition duration-200";
 
   const handleClick = (value) => {
     switch (value) {
@@ -33,7 +33,7 @@ function ButtonQuestion({ options, action }) {
     }
   };
   return (
-    <div className="flex flex-col md:flex-row gap-2 md:gap-0 mt-8">
+    <div className="flex flex-row gap-0 mt-8">
       {options?.length === 1 && (
         <button
           className={btn1 ? activeStyles : notActiveStyles}
@@ -45,13 +45,17 @@ function ButtonQuestion({ options, action }) {
       {options?.length === 2 && (
         <>
           <button
-            className={btn1 ? activeStyles : notActiveStyles}
+            className={`${
+              btn1 ? activeStyles : notActiveStyles
+            } rounded-tl-lg rounded-bl-lg p-7 lg:p-0 flex items-center justify-center`}
             onClick={() => handleClick(1)}
           >
             {options[0].text}
           </button>
           <button
-            className={btn2 ? activeStyles : notActiveStyles}
+            className={`${
+              btn2 ? activeStyles : notActiveStyles
+            } rounded-tr-lg rounded-br-lg p-7 lg:p-0 flex items-center justify-center`}
             onClick={() => handleClick(2)}
           >
             {options[1].text}
@@ -61,7 +65,9 @@ function ButtonQuestion({ options, action }) {
       {options?.length === 3 && (
         <>
           <button
-            className={btn1 ? activeStyles : notActiveStyles}
+            className={`${
+              btn1 ? activeStyles : notActiveStyles
+            } rounded-tl-lg rounded-bl-lg`}
             onClick={() => handleClick(1)}
           >
             {options[0].text}
@@ -73,7 +79,9 @@ function ButtonQuestion({ options, action }) {
             {options[1].text}
           </button>
           <button
-            className={btn3 ? activeStyles : notActiveStyles}
+            className={`${
+              btn3 ? activeStyles : notActiveStyles
+            } rounded-tr-lg rounded-br-lg`}
             onClick={() => handleClick(3)}
           >
             {options[2].text}
