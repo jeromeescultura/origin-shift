@@ -74,20 +74,15 @@ const Assessment = ({ questions }) => {
     },
     {
       header: "Your program preferences",
-      desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let&#39;s understand these further.",
+      desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let's understand these further.",
       plant: "/icons/plant3.svg",
     },
   ];
 
   const [activeState, changeState] = useState(0);
 
-  const backToTop = () => {
-    console.log("fired");
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  };
-
   const stepForwardHandler = () => {
-    backToTop();
+    window.scrollTo({ top: 580, left: 0, behavior: "smooth" });
     if (step.secondStep === "w-0 opacity-0") {
       setStep({ ...step, secondStep: "w-full opacity-100" });
     } else if (step.thirdStep === "w-0 opacity-0") {
@@ -109,7 +104,6 @@ const Assessment = ({ questions }) => {
   };
 
   const stepBackwardHandler = () => {
-    backToTop();
     if (step.thirdStep === "w-full opacity-100") {
       setStep({ ...step, thirdStep: "w-0 opacity-0" });
     } else if (step.secondStep === "w-full opacity-100") {
@@ -132,7 +126,7 @@ const Assessment = ({ questions }) => {
 
   return (
     <div className="bg-primaryBG h-full pb-16">
-      <div className="bg-assessment-bg bg-no-repeat bg-contain h-full">
+      <div className="bg-assessment-small-bg bg-top sm:bg-assessment-bg bg-no-repeat bg-contain h-full">
         <div className="w-[90%] md:w-[80%] mx-auto h-full">
           <ProgressBar step={step} stepNo={stepNo} />
           <PageIntro assessIntro={assessIntro} activeState={activeState} />
@@ -177,18 +171,17 @@ const Assessment = ({ questions }) => {
               </button>
             )}
 
-            {stepNo !== 3 ? (
-              <div>
+            <div className="">
+              {stepNo !== 3 ? (
                 <ButtonComponent text="Next" action={stepForwardHandler} />
-              </div>
-            ) : (
-              <div>
+              ) : (
+
                 <ButtonComponent
                   text="View recommendations"
                   action={stepForwardHandler}
                 />
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

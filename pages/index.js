@@ -1,20 +1,22 @@
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { BottomScrollListener } from "react-bottom-scroll-listener";
 
 import ButtonComponent from "../components/ButtonComponent";
 import ButtonBorder from "../components/ButtonBorder";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import CardScroll from "../components/CardScroll";
 
 export default function Home() {
+  const router = useRouter();
   const [show, setShow] = useState(false);
 
-  const handleAssessmentBtn = () => {
-    const { pathname } = Router;
-    Router.push("/assessment");
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/assessment");
   };
 
   const test = () => {
@@ -50,11 +52,8 @@ export default function Home() {
                 you and the environment.
               </p>
               <div className="flex flex-col w-[60%] md:flex-row sm:w-[80%] md:w-[80%] lg:w-[60%] mx-auto lg:mx-0 gap-4 mt-10 lg:mt-16 items-center sm:flex-row justify-center lg:justify-start">
-                <ButtonComponent
-                  text="Start assessment"
-                  action={handleAssessmentBtn}
-                />
-                <ButtonBorder text="Let&#39;s have a chat" />
+                <ButtonComponent text="Start assessment" action={handleClick} />
+                <ButtonComponent type="border" text="Let's have a chat" />
               </div>
             </div>
           </div>
@@ -142,177 +141,7 @@ export default function Home() {
                   much you&#39;re ready to take on.
                 </p>
               </div>
-
-              <div className="flex overflow-y-hidden overflow-x-scroll scrollbar-hide gap-4 md:pl-8">
-                <div className="bg-white w-[300px] sm:w-[240px] md:w-[320px] lg:w-[350px] px-8 py-10 rounded-xl flex flex-col gap-2 items-center text-center space-y-6">
-                  <div className="w-12 h-12">
-                    <Image
-                      src="/icons/personalized.svg"
-                      width={50}
-                      height={50}
-                      objectFit="contain"
-                      alt="icon"
-                    />
-                  </div>
-
-                  <p className="font-bold">On-Site Energy Audit</p>
-                  <p>
-                    Assess your consumpion and identify inefficient energy use
-                    and areas to save.
-                  </p>
-                  <ul className="space-y-8 text-left py-8">
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Discount on fee for Origin customers</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Provided by an experienced auditor</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Guaranteed return on fee</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Business club exclusive services</p>
-                    </li>
-                  </ul>
-                  <ButtonBorder text="Find out more" />
-                </div>
-                <div className="bg-white w-[300px] sm:w-[240px] md:w-[320px] lg:w-[350px] px-8 py-10 rounded-xl flex flex-col gap-2 items-center text-center space-y-6">
-                  <div className="w-12 h-12">
-                    <Image
-                      src="/icons/personalized.svg"
-                      width={50}
-                      height={50}
-                      objectFit="contain"
-                      alt="icon"
-                    />
-                  </div>
-
-                  <p className="font-bold">On-Site Energy Audit</p>
-                  <p>
-                    Assess your consumpion and identify inefficient energy use
-                    and areas to save.
-                  </p>
-                  <ul className="space-y-8 text-left py-8">
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Discount on fee for Origin customers</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Provided by an experienced auditor</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Guaranteed return on fee</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Business club exclusive services</p>
-                    </li>
-                  </ul>
-                  <ButtonBorder text="Find out more" />
-                </div>
-                <div className="bg-white w-[300px] sm:w-[240px] md:w-[320px] lg:w-[350px] px-8 py-10 rounded-xl flex flex-col gap-2 items-center text-center space-y-6">
-                  <div className="w-12 h-12">
-                    <Image
-                      src="/icons/personalized.svg"
-                      width={50}
-                      height={50}
-                      objectFit="contain"
-                      alt="icon"
-                    />
-                  </div>
-
-                  <p className="font-bold">On-Site Energy Audit</p>
-                  <p>
-                    Assess your consumpion and identify inefficient energy use
-                    and areas to save.
-                  </p>
-                  <ul className="space-y-8 text-left py-8">
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Discount on fee for Origin customers</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Provided by an experienced auditor</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Guaranteed return on fee</p>
-                    </li>
-                    <li className="flex gap-4">
-                      <Image
-                        src="/icons/flame.svg"
-                        width={15}
-                        height={15}
-                        objectFit="contain"
-                      />
-                      <p> Business club exclusive services</p>
-                    </li>
-                  </ul>
-                  <ButtonBorder text="Find out more" />
-                </div>
-              </div>
+              <CardScroll />
 
               <div className="sm:w-[80%] md:w-full lg:w-[80%] mx-auto ">
                 <h2 className="text-center font-bold text-primaryText mb-8 lg:mb-16 md:w-[50%] mx-auto">
