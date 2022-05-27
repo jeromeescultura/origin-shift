@@ -170,10 +170,12 @@ const Assessment = ({ questions }) => {
                 Back
               </button>
             )}
+
             <div className="">
               {stepNo !== 3 ? (
                 <ButtonComponent text="Next" action={stepForwardHandler} />
               ) : (
+
                 <ButtonComponent
                   text="View recommendations"
                   action={stepForwardHandler}
