@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     backgroundImage: {
       "assessment-bg": "url('../public/images/assessment-bg.png')",
+      "assessment-small-bg": "url('../public/images/assessment-small-bg.png')",
       "landing-bg": "url('../public/images/landing-bg.png')",
     },
     screens: {
