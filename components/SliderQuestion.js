@@ -31,12 +31,12 @@ const SliderQuestion = ({ qst }) => {
 
   return (
     <div className="w-full">
-      <div className="mt-12 bg-[#FFB43255] flex items-center w-full md:h-7 rounded-full relative">
+      <div className="mt-12 bg-[#FFB43255] flex items-center w-full h-4 md:h-7 rounded-full relative">
         <div
           className={`flex  rounded-full bg-accentColor  transition-all ease-linear duration-100 h-full min-h-[10px] ${ulWidth}`}
         ></div>
         <div className="w-full absolute ">
-          <ul className="flex h-full rounded-full  transition-all ease-linear duration-100  w-full justify-between">
+          <ul className="flex h-full rounded-full  transition-all ease-linear duration-100  w-full justify-between px-1">
             {qst &&
               qst.map((val, index) => (
                 <li key={val.id} className="flex items-center">
@@ -49,7 +49,7 @@ const SliderQuestion = ({ qst }) => {
                         : "bg-white"
                     } ${
                       sliderChoice === val.id
-                        ? "scale-[250%] md:scale-[400%] bg-accentColor hover:bg-accentColor drop-shadow-sm"
+                        ? "scale-[380%] bg-accentColor hover:bg-accentColor drop-shadow-sm"
                         : "hover:scale-125 cursor-pointer"
                     }`}
                   ></button>
@@ -58,7 +58,7 @@ const SliderQuestion = ({ qst }) => {
           </ul>
         </div>
       </div>
-      <div className="labels mt-5 md:mt-10 text-sm md:text-[16px] leading-[24px] flex justify-between">
+      <div className="labels mt-6 md:mt-10 text-sm md:text-lg leading-[24px] flex justify-between">
         <label>Not Important</label>
         <label>Very Important</label>
       </div>

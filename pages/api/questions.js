@@ -98,6 +98,14 @@ const questions = [
         },
         {
           id: 3,
+          text: "5-10 sites",
+        },
+        {
+          id: 4,
+          text: "10+ sites",
+        },
+        {
+          id: 5,
           text: "No business sites - I operate out of my home",
         },
       ],
@@ -114,7 +122,7 @@ const questions = [
         },
 
         {
-          id: 3,
+          id: 2,
           text: "Yes, I'm considering it",
         },
       ],
@@ -186,6 +194,90 @@ const questions = [
         {
           id: 5,
           text: "Very Important",
+        },
+      ],
+    },
+  },
+  {
+    energyUsageQuestion: {
+      id: "03",
+      text: "Roughly when does your business use the most energy?",
+      questionsList: [
+        {
+          id: 1,
+          text: "Constant",
+          subText:
+            "It requires 24 hour supply (eg. to run refrigeration units or warehouse temperature)",
+        },
+        {
+          id: 2,
+          text: "Mornings",
+          subText: "Roughly between 1am – 9am",
+        },
+        {
+          id: 3,
+          text: "Evenings",
+          subText: "Roughly between 5pm - 1am",
+        },
+        {
+          id: 4,
+          text: "Standard times",
+          subText: "Roughly between 9am - 5pm",
+        },
+        {
+          id: 5,
+          text: "Unconstrained by specific operating hours",
+          subText: "Energy use varies greatly depending on business priorities",
+        },
+      ],
+    },
+  },
+  {
+    goalsQuestion: {
+      text: "Can you tell us a bit more about what type of goals you are considering?",
+    },
+  },
+  {
+    landQuestion: {
+      id: "04",
+      text: "Do you have land or roof space where you are allowed to renovate, upgrade or install equipment?",
+      options: [
+        { id: 1, text: "Yes" },
+        { id: 2, text: "No" },
+        { id: 3, text: "I'm not sure" },
+      ],
+    },
+  },
+  {
+    investmentQuestion: {
+      id: "02",
+      text: "How much of an investment are you willing to make towards helping reduce the climate impact of your business practices?",
+      options: [
+        { id: 1, text: "Little to none" },
+        {
+          id: 2,
+          text: "I am open to investing a bit more, if it is within my means",
+        },
+        {
+          id: 3,
+          text: "I have secured the capital or appetite of stakeholders to invest more",
+        },
+      ],
+    },
+  },
+  {
+    largerInvestmentQuestion: {
+      id: "03",
+      text: "Would you be open to making a larger investment to explore bigger projects, if you didn't need to invest too much capital upfront?",
+      options: [
+        { id: 1, text: "Yes" },
+        {
+          id: 2,
+          text: "No",
+        },
+        {
+          id: "3",
+          text: "I'm not sure",
         },
       ],
     },
