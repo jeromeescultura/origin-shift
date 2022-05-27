@@ -56,16 +56,19 @@ const Assessment = ({ questions }) => {
       header: "Climate action & your business",
       desc: "This initial set of questions are designed to understand what climate action means for you and your business.",
       plant: "/icons/plant.svg",
+     
     },
     {
       header: "Your site & energy needs",
       desc: "To understand what options may be applicable to reduce your business impact from an energy perspective, tell us a little bit about what happens on-site to keep your business running.",
-      plant: "/icons/plant.svg",
+      plant: "/icons/plant2.svg",
+     
     },
     {
       header: "Your program preferences",
       desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let's understand these further.",
-      plant: "/icons/plant.svg",
+      plant: "/icons/plant3.svg",
+     
     },
   ];
 
