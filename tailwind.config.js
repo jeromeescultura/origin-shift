@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     backgroundImage: {
       "assessment-bg": "url('../public/images/assessment-bg.png')",
+      "landing-bg": "url('../public/images/landing-bg.png')",
     },
     screens: {
       xs: "375px",
@@ -31,5 +32,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
