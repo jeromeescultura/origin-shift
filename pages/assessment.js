@@ -6,6 +6,7 @@ import PageIntro from "../components/PageIntro";
 import ButtonComponent from "../components/ButtonComponent";
 import StepOneContainer from "../containers/StepOneContainer";
 import StepTwoContainer from "../containers/StepTwoContainer";
+import StepThreeContainer from "../containers/StepThreeContainer";
 
 const Assessment = ({ questions }) => {
   const [buttonQuestions, setButtonQuestions] = useState({});
@@ -17,6 +18,9 @@ const Assessment = ({ questions }) => {
   const [energyUsageQuestions, setEnergyUsage] = useState({});
   const [goalsQuestion, setGoals] = useState({});
   const [landQuestion, setLand] = useState({});
+  const [iconsRadioQuestion, setIconsRadioQuestion] = useState({});
+  const [investmentQuestion, setInvestment] = useState({});
+  const [largerInvestmentQuestion, setLargerInvestment] = useState({});
 
   useEffect(() => {
     questions.map((item) => {
@@ -38,6 +42,12 @@ const Assessment = ({ questions }) => {
         setGoals(item.goalsQuestion);
       } else if (item.landQuestion !== undefined) {
         setLand(item.landQuestion);
+      } else if (item.iconsRadioQuestion !== undefined) {
+        setIconsRadioQuestion(item.iconsRadioQuestion);
+      } else if (item.investmentQuestion !== undefined) {
+        setInvestment(item.investmentQuestion);
+      } else if (item.largerInvestmentQuestion !== undefined) {
+        setLargerInvestment(item.largerInvestmentQuestion);
       }
     });
   }, [questions]);
@@ -56,19 +66,16 @@ const Assessment = ({ questions }) => {
       header: "Climate action & your business",
       desc: "This initial set of questions are designed to understand what climate action means for you and your business.",
       plant: "/icons/plant.svg",
-     
     },
     {
       header: "Your site & energy needs",
       desc: "To understand what options may be applicable to reduce your business impact from an energy perspective, tell us a little bit about what happens on-site to keep your business running.",
       plant: "/icons/plant2.svg",
-     
     },
     {
       header: "Your program preferences",
       desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let's understand these further.",
       plant: "/icons/plant3.svg",
-     
     },
   ];
 
@@ -76,7 +83,7 @@ const Assessment = ({ questions }) => {
 
   const backToTop = () => {
     console.log("fired");
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   const stepForwardHandler = () => {
@@ -141,7 +148,6 @@ const Assessment = ({ questions }) => {
             )}
 
             {/* Step 2 */}
-
             {stepNo === 2 && (
               <StepTwoContainer
                 dropDwnQsts={dropdownQuestions}
@@ -149,6 +155,15 @@ const Assessment = ({ questions }) => {
                 iconQsts={iconsQuestions}
                 chkBoxQsts={energyUsageQuestions}
                 btnQsts={landQuestion}
+              />
+            )}
+
+            {/* Step 3 */}
+            {stepNo === 3 && (
+              <StepThreeContainer
+                iconsRadioQsts={iconsRadioQuestion}
+                investmentQsts={investmentQuestion}
+                largerInvQsts={largerInvestmentQuestion}
               />
             )}
           </div>

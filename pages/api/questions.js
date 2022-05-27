@@ -121,7 +121,7 @@ const questions = [
           text: "Not really",
         },
 
-        { 
+        {
           id: 2,
           text: "Yes, I'm considering it",
         },
@@ -245,6 +245,40 @@ const questions = [
         { id: 1, text: "Yes" },
         { id: 2, text: "No" },
         { id: 3, text: "I'm not sure" },
+      ],
+    },
+  },
+  {
+    investmentQuestion: {
+      id: "02",
+      text: "How much of an investment are you willing to make towards helping reduce the climate impact of your business practices?",
+      options: [
+        { id: 1, text: "Little to none" },
+        {
+          id: 2,
+          text: "I am open to investing a bit more, if it is within my means",
+        },
+        {
+          id: 3,
+          text: "I have secured the capital or appetite of stakeholders to invest more",
+        },
+      ],
+    },
+  },
+  {
+    largerInvestmentQuestion: {
+      id: "03",
+      text: "Would you be open to making a larger investment to explore bigger projects, if you didn't need to invest too much capital upfront?",
+      options: [
+        { id: 1, text: "Yes" },
+        {
+          id: 2,
+          text: "No",
+        },
+        {
+          id: "3",
+          text: "I'm not sure",
+        },
       ],
     },
   },

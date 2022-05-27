@@ -5,7 +5,7 @@ const IconsRadioQuestion = ({ qst }) => {
   const [activeState, changeState] = useState(1);
 
   return (
-    <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 mt-12">
+    <div className="flex flex-col md:flex-row items-center space-y-5 md:space-y-0 mt-12">
       {qst.map((val, index) => (
         <div
           key={val.id}
