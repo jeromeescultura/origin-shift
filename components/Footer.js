@@ -11,14 +11,14 @@ function Footer() {
             Start saving more than money
           </p>
           <p className="my-4 lg:max-w-[80%]">
-            In just 5 minutes, you can make a huge impact on Australia's
+            In just 5 minutes, you can make a huge impact on Australia&#39;s
             transition to 100% renewables.
           </p>
         </div>
 
         <div className="flex flex-col gap-4 items-center lg:flex-row mx-auto w-[60%] sm:w-full xl:w-[90%]">
           <ButtonComponent text="Start assessment" />
-          <ButtonBorder text="Let's have a chat" />
+          <ButtonBorder text="Let&#39;s have a chat" />
         </div>
       </div>
     </div>

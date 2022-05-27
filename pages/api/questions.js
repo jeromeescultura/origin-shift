@@ -123,7 +123,7 @@ const questions = [
 
         {
           id: 2,
-          text: "Yes, I'm considering it",
+          text: "Yes, I&#39;m considering it",
         },
       ],
     },
@@ -244,7 +244,7 @@ const questions = [
       options: [
         { id: 1, text: "Yes" },
         { id: 2, text: "No" },
-        { id: 3, text: "I'm not sure" },
+        { id: 3, text: "I&#39;m not sure" },
       ],
     },
   },
@@ -268,7 +268,7 @@ const questions = [
   {
     largerInvestmentQuestion: {
       id: "03",
-      text: "Would you be open to making a larger investment to explore bigger projects, if you didn't need to invest too much capital upfront?",
+      text: "Would you be open to making a larger investment to explore bigger projects, if you didn&#39;t need to invest too much capital upfront?",
       options: [
         { id: 1, text: "Yes" },
         {
@@ -277,7 +277,7 @@ const questions = [
         },
         {
           id: "3",
-          text: "I'm not sure",
+          text: "I&#39;m not sure",
         },
       ],
     },

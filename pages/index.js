@@ -41,7 +41,7 @@ export default function Home() {
             </div>
             <div className="absolute pt-16 lg:pt-28 text-center lg:text-left sm:w-[80%] md:w-[90%] lg:w-[75%] xl:w-[65%]">
               <h2 className="text-4xl lg:text-[56px] lg:leading-snug  text-primaryText font-bold px-10 sm:px-10 lg:px-0 lg:w-[500px]">
-                Business energy that's affordable <br />
+                Business energy that&#39;s affordable <br />
                 &amp; future proof
               </h2>
               <p className="text-secondaryText mt-8 font-light px-4 sm:px-4 lg:px-0 lg:w-[70%]">
@@ -54,17 +54,18 @@ export default function Home() {
                   text="Start assessment"
                   action={handleAssessmentBtn}
                 />
-                <ButtonBorder text="Let's have a chat" />
+                <ButtonBorder text="Let&#39;s have a chat" />
               </div>
             </div>
           </div>
           <div className="text-center font-light sm:w-[80%] lg:w-[80%] xl:w-[75%] mx-auto">
             <h2 className="">
-              Australia's 2.4 million small-medium enterprises are responsible
-              for over 1 quarter of the nation's carbon emissions annually.
+              Australia&#39;s 2.4 million small-medium enterprises are
+              responsible for over 1 quarter of the nation&#39;s carbon
+              emissions annually.
             </h2>
             <p className="my-6 lg:my-8 sm:leading-loose">
-              At Origin, we believe you shouldn't have to choose between
+              At Origin, we believe you shouldn&#39;t have to choose between
               maintaining funds to keep your business running now, and choosing
               cleaner, low carbon energy solutions to power it for the future.
             </p>
@@ -78,9 +79,9 @@ export default function Home() {
                 solutions
               </h2>
               <p className="mt-6 mb-8 lg:w-[80%]">
-                So we've taken a new approach to getting energy right for
-                communities and the planet - and it's 100% data driven, tailored
-                to you.
+                So we&#39;ve taken a new approach to getting energy right for
+                communities and the planet - and it&#39;s 100% data driven,
+                tailored to you.
               </p>
             </div>
             <div className="flex flex-col gap-12 mt-8 lg:mt-0">
@@ -104,9 +105,9 @@ export default function Home() {
                     Start or accelerate your sustainability journey
                   </p>
                   <p className="font-light">
-                    Instantly we'll recommend the steps your business can take
-                    to transition to cleaner energy solutions, at a price point
-                    that suits you.
+                    Instantly we&#39;ll recommend the steps your business can
+                    take to transition to cleaner energy solutions, at a price
+                    point that suits you.
                   </p>
                 </div>
               </div>
@@ -116,7 +117,7 @@ export default function Home() {
                   <p className="font-bold">Measure your impact</p>
                   <p className="font-light">
                     Understand the impact your business is making, and how you
-                    can further reduce it's carbon footprint with Origin.
+                    can further reduce it&#39;s carbon footprint with Origin.
                   </p>
                 </div>
               </div>
@@ -136,9 +137,9 @@ export default function Home() {
                 </h2>
                 <p className="text-center font-light mt-6">
                   We dont want to add unnecessary pressure on your business to
-                  take on a full scale clean energy transition plan. We've got
-                  energy for every need to help you transition based on how much
-                  you're ready to take on.
+                  take on a full scale clean energy transition plan. We&#39;ve
+                  got energy for every need to help you transition based on how
+                  much you&#39;re ready to take on.
                 </p>
               </div>
 
@@ -392,7 +393,7 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:items-center gap-8 lg:gap-32 sm:w-[80%] md:w-full lg:w-[95%] xl:w-[75%] mx-auto">
                 <div className="text-center lg:text-left">
                   <h2 className="text-primaryText font-bold">
-                    Together we are driving the Australia's transition to
+                    Together we are driving the Australia&#39;s transition to
                     net-zero.
                   </h2>
                   <p className="mt-6 mb-8">

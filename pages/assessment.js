@@ -74,7 +74,7 @@ const Assessment = ({ questions }) => {
     },
     {
       header: "Your program preferences",
-      desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let's understand these further.",
+      desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let&#39;s understand these further.",
       plant: "/icons/plant3.svg",
     },
   ];

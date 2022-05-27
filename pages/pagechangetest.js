@@ -33,7 +33,7 @@ const PageChangeTest = ({ questions }) => {
     },
     {
       header: "Your program preferences",
-      desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let's understand these further.",
+      desc: "There are a number of different clean energy projects and services out there that are more suitable than others for you, which depend on certain preferences you may have. Let&#39;s understand these further.",
       plant: "/icons/plant2.svg",
     },
   ];
@@ -233,7 +233,7 @@ const PageChangeTest = ({ questions }) => {
                   {" "}
                   <ButtonQuestion text={"Yes"} />
                   <ButtonQuestion text={"No"} />
-                  <ButtonQuestion text={"I'm not sure"} />
+                  <ButtonQuestion text={"I&#39;m not sure"} />
                 </div>
               </QuestionContainer>
             </div>
