@@ -1,6 +1,7 @@
 import React from "react";
 import QuestionContainer from "./QuestionContainer";
 import IconsRadioQuestion from "../components/IconsRadioQuestion";
+import RadioQuestion from "../components/RadioQuestion";
 
 const StepThreeContainer = ({
   iconsRadioQsts,
@@ -17,7 +18,9 @@ const StepThreeContainer = ({
       <QuestionContainer
         id={investmentQsts?.id}
         text={investmentQsts?.text}
-      ></QuestionContainer>
+      >{investmentQsts.options?.map((item) => (
+          <RadioQuestion text={}/>
+      ))}</QuestionContainer>
     </>
   );
 };

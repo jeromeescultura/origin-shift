@@ -176,13 +176,18 @@ const Assessment = ({ questions }) => {
                 Back
               </button>
             )}
+
             {stepNo !== 3 ? (
-              <ButtonComponent text="Next" action={stepForwardHandler} />
+              <div>
+                <ButtonComponent text="Next" action={stepForwardHandler} />
+              </div>
             ) : (
-              <ButtonComponent
-                text="View recommendations"
-                action={stepForwardHandler}
-              />
+              <div>
+                <ButtonComponent
+                  text="View recommendations"
+                  action={stepForwardHandler}
+                />
+              </div>
             )}
           </div>
         </div>
