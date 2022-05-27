@@ -142,9 +142,6 @@ export default function Home() {
                 </p>
               </div>
               <CardScroll />
-              {/* <div className="flex overflow-y-hidden overflow-x-scroll scrollbar-hide gap-4 md:pl-8">
-               
-              </div> */}
 
               <div className="sm:w-[80%] md:w-full lg:w-[80%] mx-auto ">
                 <h2 className="text-center font-bold text-primaryText mb-8 lg:mb-16 md:w-[50%] mx-auto">
